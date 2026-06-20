@@ -65,8 +65,10 @@ git diff apple/OpenTranslate/OpenTranslate.xcodeproj/project.pbxproj   # re-veri
 7. Debug: Develop → Web Extension Background Pages → OpenTranslate (service-worker inspector);
    page Console for content-script logs.
 
-### iOS Simulator
+### iOS / iPadOS Simulator
 1. Run the iOS scheme against an iPhone 17 simulator (or `scripts/run-ios-sim.sh`).
+   The app is **universal** — the same scheme runs on any iPad simulator too, e.g.
+   `scripts/run-ios-sim.sh "iPad Pro 11-inch (M5)"` (pass the iPad device name as `$1`).
 2. Simulator → Settings → Safari → Extensions → enable OpenTranslate → Allow All Websites.
 3. Safari → open yle.fi → extensions menu → OpenTranslate → translate via the popup.
 4. Debug: Mac Safari → Develop → [Simulator device] → background page / web page inspector.
@@ -82,6 +84,21 @@ Simulator builds may pass `CODE_SIGNING_ALLOWED=NO`. Settings are stored locally
 
 ## Hand edits to re-apply if the converter is re-run
 _(record here as they are made — signing team, Info.plist toggles, entitlements, app group)_
+
+- **iPad layout (universal app).** The iOS targets already build for iPhone **and** iPad
+  (`TARGETED_DEVICE_FAMILY = "1,2"`), so no project-setting change is needed. But the
+  converter emits both iOS storyboards with the views set to `fixedFrame="YES"` +
+  `translatesAutoresizingMaskIntoConstraints="NO"` and **no Auto Layout constraints**. That
+  pins them to a fixed iPhone-sized frame, which looks centered on iPhone (the window never
+  resizes) but renders **off-center on iPad** when the window changes size (rotation, Split
+  View, Stage Manager). Re-apply these edits after any converter re-run:
+  - `iOS (App)/Base.lproj/Main.storyboard` — drop `fixedFrame` on the `wkWebView` and pin it
+    to the root view's top/leading/trailing/bottom (full-bleed, fills any screen size).
+  - `iOS (App)/Base.lproj/LaunchScreen.storyboard` — drop `fixedFrame` on the `LargeIcon`
+    `imageView`, give it explicit 128×128 width/height constraints, and center it with
+    centerX/centerY on the root view (instead of the hard-coded `x=142 y=385` iPhone offset).
+  - Verify with `ibtool --errors --warnings <storyboard>`; then run on an iPad simulator and
+    rotate to landscape — content must stay centered.
 
 ## Known caveats
 - Never use the `wxt-module-safari-xcode` module — it runs the converter with `--force` on

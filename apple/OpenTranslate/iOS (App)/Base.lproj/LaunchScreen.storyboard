@@ -15,12 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6HG-Um-bch">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6HG-Um-bch">
                                 <rect key="frame" x="142" y="385" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="OTl-wd-128"/>
+                                    <constraint firstAttribute="height" constant="128" id="OTl-ht-128"/>
+                                </constraints>
                                 <imageReference key="image" image="LargeIcon"/>
                             </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="6HG-Um-bch" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OTl-cx-ctr"/>
+                            <constraint firstItem="6HG-Um-bch" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="OTl-cy-ctr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>

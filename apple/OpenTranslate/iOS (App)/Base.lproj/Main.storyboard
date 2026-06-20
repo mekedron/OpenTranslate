@@ -15,15 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDB-ib-igF">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDB-ib-igF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="RDB-ib-igF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OTp-iP-ad1"/>
+                            <constraint firstItem="RDB-ib-igF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OTp-iP-ad2"/>
+                            <constraint firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="RDB-ib-igF" secondAttribute="trailing" id="OTp-iP-ad3"/>
+                            <constraint firstItem="8bC-Xf-vdC" firstAttribute="bottom" secondItem="RDB-ib-igF" secondAttribute="bottom" id="OTp-iP-ad4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
