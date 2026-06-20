@@ -1,0 +1,1106 @@
+name: OpenTranslate
+extName: OpenTranslate
+extDescription: OpenTranslate는 모든 웹사이트에서 언어를 깊이 있게 학습할 수 있도록 도와주는 오픈 소스 브라우저 확장 프로그램입니다.
+uninstallSurveyUrl: https://tally.so/r/nPK6Ob
+dataTypes:
+  string: 텍스트
+  number: 숫자
+contextMenu:
+  translate: 번역
+  translateSelection: '"%s" 번역'
+  showOriginal: 원문 보기
+sidePanel:
+  firefoxUserActionHint: Firefox에서는 브라우저 사이드바에서 OpenTranslate를 열어 주세요.
+  firefoxUserActionHelpText: Firefox 사이드바 여는 방법 보기
+  firefoxUserActionHelpUrl: https://support.mozilla.org/ko/kb/use-sidebar-access-tools-and-vertical-tabs
+popup:
+  theme: 테마
+  autoLang: 자동
+  sourceLang: 원본
+  targetLang: 대상
+  translate: 번역
+  showOriginal: 원문 보기
+  enabledFloatingButton: 플로팅 버튼 활성화
+  enabledSelectionToolbar: 선택 툴바 활성화
+  alwaysTranslate: 이 사이트 항상 번역
+  addToWhitelist: 이 사이트에서 확장 프로그램 활성화
+  addToBlacklist: 이 사이트에서 확장 프로그램 비활성화
+  options: 옵션
+  hover: 마우스 오버
+  translateParagraph: 단락 번역
+  translationModeToggle:
+    tooltip:
+      bilingual:
+        current: 현재 이중 언어 모드
+        action: 클릭하여 번역만으로 전환
+      translationOnly:
+        current: 현재 번역만 모드
+        action: 클릭하여 이중 언어로 전환
+  hub:
+    tooltip: 여러 번역 모델로 동시에 텍스트 번역
+  discord:
+    tooltip: Discord에 참여하여 개발자와 소통하고 새 기능을 먼저 체험하세요
+  blog:
+    notification: OpenTranslate의 새로운 소식
+  aiSmartContext: AI 스마트 컨텍스트
+  aiSmartContextDescription: 웹페이지 컨텍스트를 사용하여 번역 품질을 향상시킵니다. LLM 번역 제공자가 필요합니다.
+  more:
+    title: 더보기
+    translationHub: 번역 허브
+    joinDiscord: Discord 참여
+    joinWechat: WeChat 그룹 참여
+    starGithub: Github에서 스타
+    rateUs: 리뷰 남기기
+    ebook: 서드파티 전자책 리더
+    tutorial: 사용 가이드
+errorRecovery:
+  title: 문제가 발생했습니다
+  description: 복구 모드가 활성화되었습니다. 현재 설정을 백업으로 내보낸 뒤 설정을 초기화하고 다시 시도하세요.
+  backupTitle: 현재 설정 먼저 백업(권장)
+  exportWithApiKeys: API Key 포함 내보내기
+  exportWithoutApiKeys: API Key 제외 내보내기
+  recoveryTitle: 복구 옵션
+  refreshPage: 페이지 새로고침
+  resetAction: 기본 설정으로 초기화
+  resetSuccess: 복구가 완료되었습니다. 설정이 초기화되었습니다
+  resetFailed: 복구에 실패했습니다. 설정을 초기화할 수 없습니다
+  errorDetails: 오류 세부 정보
+  resetDialog:
+    title: 설정을 초기화할까요?
+    description: 현재 설정이 기본값으로 덮어써집니다.
+    confirm: 초기화
+    cancel: 취소
+options:
+  commandPalette:
+    placeholder: 설정 검색...
+    noResults: 설정을 찾을 수 없습니다
+  sidebar:
+    settings: 설정
+    tools: 도구
+    product: 제품
+  tools:
+    translationHub: 번역 허브
+  setAPIKeyWarning:
+    please: API Key를 설정해 주세요
+    page: 페이지에서
+  betaExperience:
+    title: Beta 체험
+    description: 실험적 기능과 새로운 기능에 대한 조기 액세스를 활성화합니다. 이러한 기능은 불안정하거나 불완전할 수 있습니다.
+    enabled: Beta 체험 활성화
+  apiProviders:
+    title: API 제공업체
+    description: 번역 및 어휘 분석 기능을 위한 API 제공업체를 구성합니다. 20개 이상의 내장 제공업체와 모든 OpenAI 호환 API를 지원합니다.
+    addProvider: 제공업체 추가
+    badges:
+      featureCount: $1 개 기능
+    dialog:
+      title: 새 제공업체 추가
+      groups:
+        builtInProviders:
+          title: 내장 LLM 제공업체
+          description: 내장된 대규모 언어 모델 제공업체, Base URL과 같은 대부분의 설정이 필요 없음
+        openaiCompatibleProviders:
+          title: OpenAI 호환 사용자 정의 제공업체
+          description: 원하는 AI 제공업체를 찾을 수 없는 경우 Custom Provider를 선택하여 Zhipu AI와 같은 OpenAI 호환 제공업체를 구성할 수 있습니다
+        pureTranslationProviders:
+          title: 순수 번역 제공업체
+          description: 대규모 언어 모델 기능이 없는 번역 전문 제공업체
+    form:
+      fields:
+        name: 이름
+        description: 설명
+        apiKey: API Key
+        baseURL: Base URL
+        optional: 선택사항
+      duplicate: 복제
+      delete: 삭제
+      deleteDialog:
+        title: 제공업체를 삭제하시겠습니까?
+        description: 이 작업은 취소할 수 없습니다. 이 제공업체를 사용하는 기능은 다른 사용 가능한 제공업체로 자동 재할당됩니다.
+        confirm: 삭제
+        cancel: 취소
+      atLeastOneLLMProvider: 최소 하나의 LLM 번역 제공업체가 필요합니다.
+      duplicateProviderName: '중복된 제공업체 이름 "$1"'
+      defaultProvider:
+        translate: 기본 번역 제공업체로 설정
+      models:
+        translate:
+          title: 번역 모델
+          customTitle: 사용자 정의 번역 모델
+          placeholder: 모델을 선택하세요
+        fetchModels: 사용 가능한 모델 가져오기
+        fetchError: 모델을 가져오지 못했습니다
+        clickToRetry: 다시 시도하려면 클릭
+        noModels: 사용 가능한 모델이 없습니다
+        selectModel: 모델 선택
+        apiKeyRequired: 먼저 API 키를 추가하세요
+        searchModels: 모델 검색...
+        noModelsFound: 모델을 찾을 수 없습니다
+      featureProviders: 기능 제공업체
+      advancedOptions: 고급 옵션
+      providerSettingLabels:
+        region: 리전
+        apiMode: API 모드
+        resourceName: Azure 리소스 이름(선택 사항)
+        apiVersion: API 버전
+      providerSettingOptionLabels:
+        responses: Responses API
+        chatCompletions: Chat Completions
+      temperature: 온도
+      temperatureHint: 응답의 무작위성을 제어합니다. 낮은 값(0)은 더 결정적이고, 높은 값은 더 창의적입니다. 범위는 제공자에 따라 다릅니다. 비워두면 제공자 기본값을 사용합니다.
+      headers: 헤더
+      headersHint: AI 제공자 클라이언트를 만들 때 전송할 사용자 지정 HTTP 헤더입니다. 비워두면 제공자 기본값을 사용하고, {}를 입력하면 기본값을 비활성화합니다.
+      providerOptions: 제공자 옵션
+      providerOptionsHint: 사고/추론 모드와 같은 비표준 API 기능을 위한 공급자별 옵션입니다. 자세한 내용은 Vercel AI SDK 문서 또는 공급자의 공식 문서를 참조하세요.
+      providerOptionsDocsLink: 공급자 문서 보기
+      providerOptionsRecommendationTrigger: 추천 제공자 옵션 보기
+      providerOptionsRecommendationTitle: 추천 제공자 옵션이 감지되었습니다
+      providerOptionsRecommendationDescription: 추천 구성을 검토한 뒤 수동으로 적용하세요.
+      providerOptionsRecommendationApply: 적용
+      providerOptionsRecommendationApplied: 적용됨
+      invalidJson: 잘못된 JSON 형식
+    providers:
+      description:
+        openai: GPT-4o 같은 모델을 제공합니다
+        azure: Azure 배포를 통해 OpenAI 모델 사용
+        deepseek: 중국에서 사용을 권장합니다
+        openrouter: 여러 LLM 제공업체를 위한 통합 인터페이스, 사용량 기반 과금
+        ollama: 로컬 LLM
+        google: 고급 추론 능력을 갖춘 구글의 주력 AI 모델
+        anthropic: 안전성과 추론 능력이 뛰어난 Claude 모델
+        xai: 실시간 데이터 접근이 가능한 Grok 모델을 제공하는 일론 머스크의 AI 회사
+        siliconflow: 중국 및 국제 모델을 위한 고성능 추론 플랫폼
+        tensdaq: 혁신적인 경매 AI MaaS 플랫폼으로 시장 수요와 공급에 따라 가격이 결정되어 고비용 고정 요금제를 없앰
+        openaiCompatible: OpenAI API 호환 서드파티
+        deeplx: 비공식 DeepL API
+        deepl: 공식 DeepL API
+        bedrock: 엔터프라이즈급 파운데이션 모델을 위한 AWS 관리 서비스
+        groq: 초고속 LLM 추론 속도에 특화된 하드웨어
+        deepinfra: 인기 있는 오픈소스 모델을 위한 비용 효율적인 클라우드 추론
+        mistral: 효율적인 다국어 모델에 특화된 유럽 AI 회사
+        togetherai: 오픈소스 모델 실행 및 파인튜닝을 위한 협업 플랫폼
+        cohere: 강력한 다국어 및 RAG 기능을 갖춘 엔터프라이즈 중심 AI
+        fireworks: 오픈소스 모델을 위한 프로덕션 준비 추론 플랫폼
+        cerebras: 빠른 번역과 텍스트 분석을 위한 초고속 AI 추론
+        replicate: 전문적인 번역 작업을 위한 다양한 오픈소스 모델 액세스
+        perplexity: 맥락적 번역과 읽기 지원을 위한 실시간 지식 강화 AI
+        vercel: 웹 콘텐츠 번역과 분석에 최적화된 AI 모델
+        volcengine: ByteDance의 클라우드 AI 플랫폼, Doubao 모델 제공
+        minimax: MiniMax AI 플랫폼, 고급 MiniMax-M2 모델 제공
+        alibaba: 알리바바 클라우드의 Qwen 모델 시리즈, 고급 추론 및 다국어 기능 제공
+        moonshotai: Moonshot AI의 Kimi 모델 시리즈, 강력한 추론 및 긴 컨텍스트 기능 제공
+        huggingface: Hugging Face 추론 API, 수천 개의 오픈소스 모델 접근 제공
+    apiKey:
+      showAPIKey: API Key 표시
+    howToConfigure: 구성 방법은?
+    testConnection:
+      button: 연결 테스트
+      testing: 테스트 중...
+  general:
+    title: 일반
+    appearance:
+      title: 외관
+      theme: 테마
+      system: 시스템
+      light: 라이트
+      dark: 다크
+    featureProviders:
+      title: 기능 제공업체
+      description: 각 기능에 사용할 제공업체를 선택
+      customActions: 사용자 정의 AI 액션
+      features:
+        translate: 페이지 번역
+        selectionToolbar_translate: 선택 툴바 번역
+        tts: 텍스트 음성 변환
+        inputTranslation: 입력 번역
+        videoSubtitles: 비디오 자막
+    translationConfig:
+      model:
+        title: 모델
+        enterCustomModel: 사용자 정의 모델 이름 입력
+    clearCache:
+      title: 캐시 지우기
+      description: 브라우저의 모든 번역 캐시를 지웁니다
+      clearing: 지우는 중...
+      dialog:
+        title: 캐시 지우기
+        trigger: 캐시 지우기
+        confirm: 확인
+        cancel: 취소
+        description: 이 작업은 모든 번역 캐시를 지웁니다. 이 작업은 되돌릴 수 없습니다.
+    languageDetection:
+      title: 언어 감지
+      description: 자동 번역 언어 감지, 건너뛰기 언어 감지 및 읽기 음성 선택 정확도에 영향을 줍니다.
+      mode:
+        basic: 기본
+        llm: LLM
+      provider:
+        label: 감지 제공자
+        placeholder: 제공자 선택
+      status:
+        noProviders: LLM 제공자를 먼저 구성하세요
+        basicRecommend: LLM 활성화 권장
+        llmEnabled: LLM 감지 활성화됨
+  siteControl:
+    title: 사이트 제어
+    mode:
+      title: 확장 프로그램 활성화 모드
+      description: 블랙리스트 모드를 사용하여 특정 사이트에서 확장 프로그램을 비활성화하거나, 화이트리스트 모드를 사용하여 특정 사이트에서만 실행되도록 제한할 수 있습니다.
+      blacklist: 나열된 사이트에서만 비활성화
+      whitelist: 나열된 사이트에서만 실행
+    patterns:
+      enterUrlPattern: "URL 패턴 입력 (예: example.com)"
+      urlPattern: URL 패턴
+  overlayTools:
+    title: 오버레이 도구
+    floatingButton:
+      title: 플로팅 버튼
+    selectionToolbar:
+      title: 선택 툴바
+    contextMenu:
+      title: 컨텍스트 메뉴
+    inputTranslation:
+      title: 입력 번역
+  inputTranslation:
+    provider:
+      title: 번역 제공자
+      description: 입력 번역에 사용할 번역 제공자 선택
+      label: 제공자
+    toggle:
+      title: 트리플 스페이스 번역 활성화
+      description: 입력 필드에서 스페이스바를 빠르게 3번 누르면 내용이 번역됩니다
+    languages:
+      title: 번역 언어
+      description: 입력 번역의 소스 및 타겟 언어 선택
+      sourceCode: 페이지 소스 언어
+      targetCode: 페이지 타겟 언어
+      enableCycle: 매번 방향 전환
+    threshold:
+      title: 트리거 임계값
+      description: 스페이스바 누름 사이의 시간 간격
+      label: 임계값 (밀리초)
+      hint: 연속 스페이스바 누름 사이의 시간 간격 (100-1000밀리초)
+      error: 값은 $1에서 $2 사이여야 합니다
+  floatingButtonAndToolbar:
+    title: 플로팅 버튼 및 툴바
+    floatingButtonDemoImageAlt: 플로팅 버튼 데모
+    selectionToolbarDemoImageAlt: 선택 툴바 데모
+    floatingButton:
+      globalToggle:
+        title: 플로팅 버튼 활성화
+        description: 웹 페이지에 플로팅 버튼을 표시하여 OpenTranslate 기능에 빠르게 액세스
+      closeMenu:
+        disableForSite: 이 사이트에서 비활성화
+        disableGlobally: 전역 비활성화
+      disabledSites:
+        title: 플로팅 버튼 비활성화 사이트
+        description: 플로팅 버튼을 비활성화할 웹사이트를 설정합니다
+        enterUrlPattern: URL 패턴 입력
+        urlPattern: URL 패턴
+      clickAction:
+        title: 클릭 동작
+        description: 플로팅 버튼을 클릭할 때 실행할 동작 선택
+        panel: 사이드 패널 열기
+        translate: 페이지 번역 전환
+      side:
+        title: 버튼 위치
+        description: 플로팅 버튼을 페이지 어느 쪽에 고정할지 선택합니다
+        left: 왼쪽
+        right: 오른쪽
+    selectionToolbar:
+      globalToggle:
+        title: 선택 툴바 활성화
+        description: 웹 페이지에서 텍스트를 선택할 때 도구 모음을 표시하여 빠르게 번역, 읽기, AI 액션을 사용할 수 있습니다
+      opacity:
+        title: 투명도
+        description: 선택 툴바와 여기서 열리는 확장 창의 투명도를 조절합니다
+      featureToggles:
+        title: 기능 토글
+        description: 선택 툴바에 표시할 기본 제공 기능 선택
+        translate: 번역
+        speak: 읽기
+      shortcut:
+        title: Selection Translation Shortcut
+        description: Customize the shortcut key for translating selected text
+      closeMenu:
+        disableForSite: 이 사이트에서 비활성화
+        disableGlobally: 전역 비활성화
+      disabledSites:
+        title: 선택 툴바 비활성화 사이트
+        description: 선택 툴바를 비활성화할 웹사이트를 설정합니다
+        enterUrlPattern: URL 패턴 입력
+        urlPattern: URL 패턴
+      errors:
+        customActionFailed: 사용자 지정 작업 실패
+        customActionFailedFallback: 사용자 지정 작업 요청에 실패했습니다
+        actionUnavailable: 선택한 작업을 사용할 수 없습니다
+        missingSelection: 선택된 텍스트가 없습니다
+        providerDisabled: 선택한 제공업체가 비활성화되었습니다
+        providerUnavailable: 선택한 제공업체를 사용할 수 없습니다
+      features:
+        provider: 제공업체
+        selectProvider: 제공업체 선택
+        noProviderAvailable: 사용 가능한 제공업체가 없습니다
+        useProviderDefaultModel: 제공업체 기본 모델 사용
+        useCustomModel: 사용자 지정 모델 사용
+        customModel: 사용자 지정 모델
+        model: 모델
+        modelNotAvailableForNonLLM: 모델 설정은 LLM 제공업체에서만 사용할 수 있습니다
+        translate:
+          title: 선택 번역
+          description: 선택 툴바 번역 기능의 제공업체와 모델을 구성합니다
+      customActions:
+        title: 커스텀 AI 액션
+        description: 선택한 텍스트에 대한 구조화된 AI 작업을 직접 추가하세요
+        add: AI 액션 추가
+        edit: AI 액션 편집
+        empty: 아직 커스텀 AI 액션이 없습니다
+        noEnabledLlmProvider: 커스텀 AI 액션을 만들기 전에 최소 하나의 LLM 제공업체를 활성화하세요
+        table:
+          name: 이름
+          provider: 제공업체
+          fields: 필드
+          actions: 작업
+        form:
+          name: 이름
+          icon: 아이콘
+          iconField:
+            chooseAriaLabel: 아이콘 선택
+            chooseTitle: 아이콘 선택
+            inputPlaceholder: 아이콘 이름 입력
+            helpAriaLabel: 아이콘 도움말 더보기
+            helpTitle: 원하는 아이콘을 못 찾았나요?
+            helpStepBrowsePrefix: ""
+            helpStepBrowseSuffix: 에서 아이콘 찾아보기
+            helpStepCopyPrefix: "예를 들어 "
+            helpStepCopySuffix: " 같은 아이콘 이름을 복사해 입력란에 붙여넣으세요."
+          provider: 제공업체(구조화 출력 지원 필요)
+          selectProvider: 제공업체 선택
+          systemPrompt: 시스템 프롬프트
+          prompt: 프롬프트
+          outputSchema: 출력 스키마
+          addField: 필드 추가
+          fieldName: 필드 이름
+          fieldType: 필드 유형
+          fieldDescription: 설명
+          fieldDescriptionPlaceholder: 이 필드에 포함할 내용을 설명하세요...
+          fieldSpeaking: 음성 읽기 사용
+          actions: 작업
+          cancel: 취소
+          save: 저장
+          defaultFieldName: 결과
+          fieldNamePlaceholder: 필드명
+          autoFieldPrefix: 필드
+          addFieldDialog:
+            title: 출력 필드 추가
+          editFieldDialog:
+            title: 출력 필드 편집
+            save: 저장
+          deleteFieldDialog:
+            title: 출력 필드를 삭제하시겠습니까?
+            description: 이 출력 필드가 제거됩니다.
+            confirm: 삭제
+            cancel: 취소
+          tokens:
+            selection: 선택한 텍스트 내용
+            paragraphs: 선택 영역과 겹치는 문단 내용을 빈 줄로 이어 붙인 값이며, 사용자 정의 AI 액션에 전달될 때는 앞의 2000자로 잘립니다
+            targetLanguage: 사용자의 대상 언어
+            webTitle: 웹페이지 제목
+            webContent: 현재 페이지에서 추출한 웹페이지 본문(앞의 2000자로 잘린 버전)
+          delete: 삭제
+          deleteDialog:
+            title: 사용자 정의 액션을 삭제하시겠습니까?
+            description: 이 작업은 취소할 수 없습니다.
+            confirm: 삭제
+            cancel: 취소
+        errors:
+          nameRequired: 이름은 필수입니다
+          duplicateName: '중복된 액션 이름 "$1"'
+          invalidIcon: 올바르지 않은 Iconify 아이콘 문자열입니다
+          providerRequired: 활성화된 LLM 제공업체를 선택하세요
+          outputSchemaRequired: 최소 하나의 출력 필드를 추가하세요
+          fieldKeyRequired: 필드 이름은 필수입니다
+          duplicateFieldKey: 필드 이름은 고유해야 합니다
+    contextMenu:
+      title: 컨텍스트 메뉴
+      translate:
+        title: 우클릭 번역 활성화
+        description: 브라우저 우클릭 메뉴에 번역 옵션을 추가하여 페이지나 선택한 텍스트를 빠르게 번역
+  translation:
+    title: 번역
+    requestQueueConfig:
+      title: 번역 속도
+      firstOnDescription: 번역 요청 처리 속도 조정 및
+      lastOnDescription: 구현
+      capacity:
+        title: 최대 버스트 요청 수
+        description: 허용되는 임시 버스트 요청 수는 짧은 시간 내 동시 처리 가능한 최대 요청 수를 결정함
+      rate:
+        title: 초당 평균 요청 수
+        description: 초당 평균 요청 수 (단, 최대 버스트 요청 수 설정을 통한 일시적 초과 요청 전송 허용)
+    batchQueueConfig:
+      title: 배치 번역
+      description: 배치 번역 시 문자 수 제한 및 최대 단락 수 구성 (대규모 언어 모델 번역에서만 유효)
+      maxCharactersPerBatch:
+        title: 최대 문자 수
+        description: 배치 요청당 허용되는 최대 문자 수로 각 번역의 콘텐츠 양을 제어합니다
+      maxItemsPerBatch:
+        title: 최대 단락 수
+        description: 각 배치 번역의 최대 단락 수로 각 번역의 콘텐츠 양을 제어합니다
+      statisticsLink: 지난 7일간 약 $1 의 비용을 절약했습니다
+    autoTranslateWebsite:
+      title: 웹사이트 기반 자동 번역
+      description: 이 사이트를 항상 번역합니다
+      urlPattern: URL 패턴
+      enterUrlPattern: URL 패턴 입력
+    neverAutoTranslateWebsite:
+      title: Never Auto Translate Based on Website
+      description: Never automatically translate this website
+      urlPattern: URL Pattern
+      enterUrlPattern: Enter URL Pattern
+    personalizedPrompts:
+      title: 개인화된 프롬프트
+      description: 다양한 유형의 프롬프트를 사용자 정의하여, 번역 시 프롬프트 유형을 직접 조정할 수 있습니다. 프롬프트는 사용자가 LLM에게 보내는 텍스트를 나타내며.
+      communityPrompts: 커뮤니티에서 프롬프트 가져오기 또는 공유
+      communityPromptsUrl: https://github.com/mekedron/OpenTranslate/discussions/821
+      addPrompt: 프롬프트 추가
+      default: 기본
+      importSuccess: 가져오기 성공
+      import: 가져오기
+      export: 내보내기
+      current: 사용 중
+      editPrompt:
+        title: 프롬프트 편집
+        name: 이름
+        systemPrompt: 시스템 프롬프트
+        prompt: 프롬프트
+        promptCellInput:
+          input: 번역할 텍스트 내용
+          targetLanguage: 목표 언어
+          webTitle: 웹페이지 제목
+          webDescription: 페이지 메타데이터의 웹페이지 설명
+          webContent: 웹페이지 본문(앞의 2000자로 잘림)
+          webSummary: 웹페이지 요약 (AI 스마트 컨텍스트 필요)
+        save: 저장
+        close: 취소
+      deletePrompt:
+        title: 프롬프트 삭제
+        description: 이 프롬프트를 삭제하시겠습니까
+        confirm: 확인
+        cancel: 취소
+      exportPrompt:
+        exportSelected: 선택 항목 내보내기
+        cancel: 취소
+    translationStyle:
+      title: 번역 표시 스타일
+      description: 번역 결과와 원문을 구분하기 위해 원하는 스타일을 설정하세요
+      useCustomStyle: 커스텀 CSS 스타일 사용
+      useCustomStyleDescription: 모든 CSS 지원, 글꼴, 애니메이션, 언어별 스타일 등
+      presetStyle: 프리셋 스타일
+      cssEditor: CSS 편집기
+      preview: 미리보기
+      stylePreviewLanguage: 언어
+      stylePreviewDirection: 방향
+      stylePreviewTranslatedText: 번역된 텍스트
+      style:
+        default: 없음
+        blur: 흐림 효과
+        blockquote: 인용
+        weakened: 약화
+        dashedLine: 점선
+        border: 테두리
+        textColor: 텍스트 색상
+        background: 배경
+      customCSS:
+        editor:
+          placeholder: |
+            /* 예제: 사용자 정의 색상 및 배경 스타일 */
+            [data-opentranslate-custom-translation-style='custom'] {
+              color: #414535;
+              background-color: light-dark(#F2E3BC, #C19875);
+              padding: 2px 4px;
+              border-radius: 4px;
+            }
+          saveButton: 저장
+          savedButton: 저장됨
+          validation:
+            validating: 검증 중...
+            valid: CSS가 유효합니다
+            syntaxError: CSS에 구문 오류가 있습니다
+            tooLong: CSS가 너무 깁니다
+            saved: 모든 변경사항이 저장되었습니다
+    translationMode:
+      title: 번역 모드
+      description: "번역된 텍스트 표시 방법 선택: 이중 언어 또는 번역만"
+      mode:
+        bilingual: 이중 언어
+        translationOnly: 번역만
+    translateRange:
+      title: 번역 범위
+      description: 페이지의 주요 내용만 번역할지 모든 내용을 번역할지 선택합니다.
+      range:
+        main: 주요 내용
+        all: 전체 내용
+    pageTranslationShortcut:
+      title: 페이지 번역 단축키
+      description: 전체 웹페이지를 번역하는 단축키를 사용자 지정합니다
+    preloadConfig:
+      title: 사전 번역 범위
+      description: API 비용을 절약하기 위해 뷰포트 아래 콘텐츠를 얼마나 사전 번역할지 제어합니다
+      margin:
+        title: 미리 로드 거리 (픽셀)
+        description: 뷰포트에서 얼마나 떨어진 곳에서 콘텐츠 번역을 시작할지. 작은 값은 API 비용을 절약하지만 스크롤 시 지연이 발생할 수 있습니다.
+      threshold:
+        title: 가시성 임계값
+        description: 번역을 트리거하는 데 필요한 요소 가시성 비율 (0-1). 높은 값은 요소가 더 많이 보일 때까지 번역을 지연시킵니다.
+    smallParagraphFilter:
+      title: 짧은 텍스트 필터
+      description: 지정한 문자 수 또는 단어 수보다 적은 텍스트 노드의 번역을 건너뜁니다 (0 = 비활성화)
+      minCharacters:
+        title: 최소 문자 수
+        description: 이 값보다 적은 문자 수의 텍스트 노드는 번역되지 않습니다. 문자 수에는 공백이 포함됩니다.
+      minWords:
+        title: 최소 단어 수
+        description: 이 값보다 적은 단어 수의 텍스트 노드는 번역되지 않습니다. 모든 언어에서 정확한 단어 카운트를 위해 Intl.Segmenter를 사용합니다.
+      error: 값은 $1에서 $2 사이여야 합니다
+    nodeTranslationHotkey:
+      title: 호버 또는 길게 누르기 번역 단축키
+      description: 호버 번역 수정 키를 사용자 지정하거나 마우스 길게 누르기로 단락을 번역합니다
+      enable: 활성화
+    llmProviderConfigured: $1에 LLM 제공업체 선택됨
+    llmProviderNotConfigured: $1에 LLM 제공업체 미선택
+    autoTranslateLanguages:
+      title: 언어에 기반한 자동 번역
+      description: 특정 언어가 감지되면 페이지 콘텐츠를 자동으로 번역합니다
+      selectLanguages: 언어 선택
+      detection:
+        label: 언어 감지
+        basic: 기본
+        llm: LLM
+        description: 기본 감지는 빠르고 무료입니다. LLM 감지는 더 정확하지만 지연 시간과 API 비용이 증가합니다. 자동 번역 언어 설정이 필요합니다.
+    skipLanguages:
+      title: 언어 기반 자동 건너뛰기
+      description: 지정된 언어가 감지되면 단락 번역을 자동으로 건너뜁니다
+      targetLanguageSkip: 대상 언어 건너뛰기
+      targetLanguageSkipDescription: 번역 전에 단락이 이미 대상 언어인지 미리 감지합니다. 일치하는 텍스트는 요청을 보내지 않고 건너뜁니다. 이 옵션을 꺼도 번역 결과가 원문과 같으면 숨기는 후처리 보호는 유지됩니다.
+      selectLanguages: 언어 선택
+      detection:
+        label: 언어 감지
+        basic: 기본
+        llm: LLM
+        description: 기본 감지는 빠르고 무료입니다. LLM 감지는 더 정확하지만 지연 시간과 API 비용이 증가합니다.
+    aiContentAware:
+      title: AI 스마트 컨텍스트 번역
+      description: AI에 웹페이지 컨텍스트를 제공하여 번역 품질을 향상시킵니다
+      enable: AI 스마트 컨텍스트 번역 활성화
+      enableDescription: AI가 웹페이지 요약을 사용하여 번역 정확도를 향상시킵니다. LLM 제공업체가 필요합니다. 번역 시작 시 지연이 발생하고 API 비용이 증가합니다.
+  tts:
+    title: 텍스트 음성 변환
+    description: Edge TTS 음성 설정으로 말하기 버튼을 사용자 지정하세요.
+    voice:
+      label: 음성
+      fallback: 대체
+      selectPlaceholder: 음성을 선택하세요
+      noVoicesFound: 음성을 찾을 수 없습니다
+      previewSample: OpenTranslate의 인사입니다! 제가 읽어 드릴 때 이렇게 들립니다.
+    languageVoice:
+      label: 언어별 음성
+      reset: 재설정
+      description: 언어를 선택하고 TTS가 해당 언어를 감지했을 때 사용할 음성을 지정합니다.
+    rate:
+      label: 속도 (%)
+      hint: -100에서 100 사이 정수 값을 입력할 수 있습니다
+    pitch:
+      label: 피치 (Hz)
+      hint: -100에서 100 사이 정수 값을 입력할 수 있습니다
+    volume:
+      label: 볼륨 (%)
+      hint: -100에서 100 사이 정수 값을 입력할 수 있습니다
+    betaDisabled: 텍스트 음성 변환 설정을 사용자 지정하려면 Beta 체험을 활성화하세요.
+  statistics:
+    title: 통계
+    batchRequest:
+      title: 일괄 번역으로 절약된 요청
+      description: 기간 내 일괄 번역으로 절약된 요청 비율
+      originalRequestCount: 원래 요청 수
+      batchRequestCount: 일괄 요청 수
+  config:
+    title: 설정
+    about:
+      title: 소개
+      description: OpenTranslate는 2025년 4월에 태어났습니다
+      mission: OpenTranslate는 언어 학습, 의학 등 지식 집약적 분야에서 AI 시대의 고품질 교육 기회에 더 평등하게 접근할 수 있도록, 실제 교사에 가까운 학습 경험을 더 낮은 비용으로 제공하는 것을 목표로 합니다.
+    sync:
+      title: 수동 설정 동기화
+      description: 수동으로 설정 가져오기 및 내보내기
+      import: 설정 가져오기
+      export: 설정 내보내기
+      importSuccess: 설정 가져오기 완료
+      exportSuccess: 설정 내보내기 완료
+      importError: 가져오기 실패
+      versionTooNew: 가져온 설정 버전이 최신이므로 OpenTranslate를 최신 버전으로 업그레이드해 주세요
+      migrationError: 마이그레이션 실패
+      validationError: 설정 검증 실패
+      exportOptions:
+        title: 내보내기 옵션 선택
+        description: 내보내는 설정에 API 키를 포함할지 선택하세요. API 키를 포함하면 민감한 정보가 유출될 수 있으므로 안전한 환경에서만 사용하는 것을 권장합니다.
+        includeAPIKeys: API 키 포함
+        excludeAPIKeys: API 키 제외
+        cancel: 취소
+      viewConfig:
+        expand: 설정 펼치기
+        collapse: 설정 접기
+      googleDrive:
+        title: Google Drive 클라우드 동기화
+        description: 원격이 최신이면 다운로드, 로컬이 최신이면 업로드
+        sync: Google Drive 동기화
+        syncing: 동기화 중...
+        syncSuccess:
+          uploaded: 로컬 설정이 클라우드에 업로드됨
+          downloaded: 원격 설정이 적용됨
+          sameChanges: 로컬과 원격 변경 사항이 동일하여 동기화됨
+          noChange: 이미 동기화됨
+          unresolved: 충돌이 해결되고 로컬 및 클라우드에 동기화됨
+        syncError: 동기화 실패, 다시 시도해 주세요
+        metadataCorrupted: 동기화 메타데이터가 손상되어 원격 구성을 적용했습니다
+        lastSyncTime: 마지막 동기화 시간
+        logout: 로그아웃
+        logoutSuccess: Google 계정에서 로그아웃되었습니다
+        unresolved:
+          title: 구성 동기화 해결
+          description: 로컬 및 원격 구성이 다릅니다. 각 필드에 대해 유지할 버전을 선택하세요.
+          resolved: 해결됨
+          unresolved: 미해결
+          localValue: 로컬 값
+          remoteValue: 원격 값
+          useLocal: 로컬 사용
+          useRemote: 원격 사용
+          useAllLocal: 모두 로컬 사용
+          useAllRemote: 모두 원격 사용
+          reset: 선택 재설정
+          progress: $1/$2개의 변경 해결됨
+          confirm: 동기화 확인
+          cancel: 취소
+          hasUnresolvedInChildren: ⚠ 미해결 변경 포함
+          item: 항목
+          items: 항목
+          unresolvedPrompt: "[미해결 - 선택하세요]"
+          localLatest: 로컬 최신
+          remoteLatest: 원격 최신
+          bothChanged: 양쪽 모두 변경됨
+          localChanged: 로컬이 변경됨
+          remoteChanged: 원격이 변경됨
+          configValid: 구성이 유효합니다
+          configInvalid: 구성이 유효하지 않습니다
+          resolveToContinue: 계속하려면 충돌을 해결하세요
+          validationAlert:
+            title: 병합된 구성에 유효성 검사 오류가 있습니다
+            description: "아래 차이점을 조정하여 수정하세요:"
+          moreErrors: ...그리고 $1개의 오류가 더 있습니다
+    backup:
+      title: 설정 백업
+      description: 설정이 변경되면 매시간 자동으로 백업이 생성됩니다. 여기에서 이전 설정을 복원할 수 있습니다. (최대 $1개 백업)
+      loading: 백업을 불러오는 중...
+      backupNow: 지금 백업
+      backupSuccess: 백업이 생성되었습니다
+      restoreSuccess: 설정이 복원되었습니다
+      empty:
+        title: 아직 사용 가능한 백업이 없습니다
+        description: 설정이 변경되면 매시간 자동으로 백업이 생성됩니다.
+      item:
+        extensionVersion: 확장 프로그램 버전：
+        schemaVersion: 설정 버전：
+        restore: 복원
+        export: 내보내기
+        delete: 삭제
+      restore:
+        title: 설정 백업을 복원하시겠습니까?
+        description: 현재 설정이 최신 백업과 다른 경우 자동으로 현재 설정이 백업됩니다. 백업 수가 제한을 초과하면 가장 오래된 백업이 삭제될 수 있습니다.
+        cancel: 취소
+        confirm: 복원
+      delete:
+        title: 백업을 삭제하시겠습니까?
+        description: 이 백업을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.
+        cancel: 취소
+        confirm: 삭제
+    resetConfig:
+      title: 기본 설정 복원
+      description: 모든 설정을 기본값으로 재설정
+      dialog:
+        title: 기본 설정 복원
+        trigger: 설정 초기화
+        confirm: 확인
+        cancel: 취소
+        description: 이 작업은 모든 사용자 지정 설정을 지우고 기본값으로 재설정합니다. 삭제하시겠습니까?
+  videoSubtitles:
+    title: 비디오 자막
+    description: 현재 YouTube 비디오 자막만 지원
+    provider:
+      title: 번역 제공자
+      description: 비디오 자막 번역에 사용할 번역 제공자를 선택하세요
+      label: 제공자
+    enable: 비디오 자막 활성화
+    enableDescription: 활성화하면 YouTube 플레이어 컨트롤 바에 번역 버튼이 나타납니다. 클릭하여 자막 번역을 시작하세요.
+    autoStart: 자막 자동 활성화
+    autoStartDescription: 비디오가 로드되면 자동으로 자막 번역을 활성화합니다.
+    style:
+      title: 자막 스타일
+      description: 자막 외관 사용자 지정
+      preview: 미리보기
+      displayMode:
+        title: 표시 모드
+        bilingual: 이중 언어
+        originalOnly: 원문만
+        translationOnly: 번역만
+      translationPosition:
+        title: 번역 위치
+        above: 위
+        below: 아래
+      generalSettings: 일반 설정
+      mainSubtitle: 메인 자막
+      translationSubtitle: 번역 자막
+      containerStyle: 배경
+      fontFamily: 글꼴
+      fontScale: 글꼴 크기
+      color: 색상
+      fontWeight: 글꼴 굵기
+      backgroundOpacity: 배경 투명도
+      reset: 기본값으로 재설정
+    aiSegmentation:
+      title: AI 스마트 분할
+      enable: AI 스마트 분할 활성화
+      enableDescription: AI를 사용하여 자막을 지능적으로 분할하여 가독성을 향상시킵니다. 타임라인은 AI가 결정하므로 타이밍 오차가 발생할 수 있습니다. LLM 번역 공급자가 필요합니다.
+      clearCache: 캐시 삭제
+      clearing: 삭제 중...
+      clearCacheDialog:
+        title: AI 분할 캐시 삭제
+        description: 모든 캐시된 AI 분할 결과가 삭제됩니다. 다음에 AI 분할이 활성화된 비디오를 재생하면 자막이 다시 처리됩니다.
+        cancel: 취소
+        confirm: 확인
+    requestQueueConfig:
+      title: 자막 번역 속도
+      firstOnDescription: 자막 번역 요청 처리 속도를
+      lastOnDescription: 알고리즘으로 조정
+      capacity:
+        title: 최대 버스트 요청 수
+        description: 짧은 시간 내에 동시에 처리할 수 있는 최대 자막 번역 요청 수
+      rate:
+        title: 초당 평균 요청 수
+        description: 초당 평균 자막 번역 요청 수. 최대 버스트 수를 설정하여 일시적으로 초과 요청을 보낼 수 있습니다
+    batchQueueConfig:
+      title: 자막 일괄 번역
+      description: 배치 번역 시 문자 수 제한 및 최대 단락 수 구성 (대규모 언어 모델 번역에서만 유효)
+      maxCharactersPerBatch:
+        title: 최대 문자 수
+        description: 배치 요청당 허용되는 최대 문자 수로 각 번역의 콘텐츠 양을 제어합니다
+      maxItemsPerBatch:
+        title: 최대 단락 수
+        description: 각 배치 번역의 최대 단락 수로 각 번역의 콘텐츠 양을 제어합니다
+    customPrompts:
+      title: 사용자 정의 자막 프롬프트
+      description: 자막 번역용 프롬프트 템플릿을 사용자 정의합니다 (웹페이지 번역 프롬프트와 별도)
+      editPrompt:
+        promptCellInput:
+          input: 번역할 자막 텍스트
+          targetLanguage: 대상 언어
+          webTitle: 웹페이지 제목
+          webDescription: 페이지 메타데이터의 웹페이지 설명
+          videoSummary: 동영상 요약 (AI 스마트 컨텍스트 필요)
+  whatsNew:
+    title: 새로운 기능
+  rateUs:
+    title: 리뷰 남기기
+side:
+  sourceLang: 원본 언어
+  targetLang: 대상 언어
+  fileExport: 파일 내보내기
+translateService:
+  title: 번역 서비스
+  description: 웹페이지 번역 전용
+  normalTranslator: 일반 번역기
+  aiTranslator: AI 번역기
+  selectServices: 서비스 선택
+  translationProviders: 번역 서비스
+  configureAPI: API 설정
+translatePrompt:
+  title: AI 번역 스타일
+  description: 번역 시 사용할 프롬프트를 선택할 수 있습니다. 설정 페이지에서 사용자 정의 프롬프트를 추가하거나 수정할 수 있습니다
+languageLevel: 원본 언어 수준
+languageLevels:
+  beginner: 초급
+  intermediate: 중급
+  advanced: 고급
+noAPIKeyConfig:
+  warning: AI 모델을 사용하려면 먼저 옵션 페이지에서 API 키를 설정해 주세요
+  warningWithLink:
+    youMust: 반드시
+    setTheAPIKey: API 키를 설정해야 합니다
+    firstOnThe: 먼저
+    optionsPage: 옵션
+    page: 페이지에서
+languageDetection:
+  llmFailed: LLM 언어 감지 실패, 기본 감지로 대체되었습니다
+translation:
+  sameLanguage: 원본 언어와 대상 언어는 달라야 합니다
+  autoModeSameLanguage: 감지된 언어 '$1'은(는) 대상 언어와 같습니다
+speak:
+  fetchingAudio: 오디오 생성 중...
+  playingAudio: 오디오 재생 중...
+  failedToGenerateSpeech: 음성 생성 실패
+  noTextSelected: 텍스트가 선택되지 않았습니다
+  openaiNotConfigured: OpenAI 공급자가 구성되지 않았거나 활성화되지 않았습니다
+  openaiApiKeyNotConfigured: OpenAI API 키가 구성되지 않았습니다
+action:
+  copy: 복사
+  copied: 복사됨
+  regenerate: 다시 생성
+  viewContextDetails: 컨텍스트
+  customizeCustomAction: $1 작업 맞춤 설정
+  openCustomActions: Custom AI Actions 열기
+  contextDetailsTitleLabel: 제목
+  contextDetailsParagraphsLabel: 문단 내용
+  translation: 번역
+  speak: 읽기
+  playing: 재생 중
+thinking:
+  label: 사고 중
+  complete: 사고 완료
+  expand: 사고 펼치기
+  collapse: 사고 접기
+shortcutKeySelector:
+  placeholder: 단축키를 입력해 주세요
+subtitles:
+  actions:
+    downloadTranslated: 번역 자막 다운로드
+    downloadTranslatedPreparing: 자막 준비 중, 긴 동영상은 시간이 더 걸릴 수 있습니다
+    downloadTranslatedTranslating: 자막 번역 중
+    downloadTranslatedComplete: 번역 자막을 다운로드했습니다
+    downloadSource: 원본 자막 다운로드
+  state:
+    loading: OpenTranslate 자막 로딩 중
+    error: 오류 발생
+  errors:
+    http429: 429 유튜브 자막 인터페이스 요청이 너무 많습니다. 잠시 후 다시 시도해 주세요
+    http404: 404 유튜브 자막을 찾을 수 없습니다
+    http403: 403 유튜브 자막 접근이 거부되었습니다
+    http500: 500 유튜브 서버 오류
+    httpUnknown: HTTP 오류 $1
+    invalidResponse: 유튜브 자막 응답 형식이 잘못되었습니다
+    networkError: 자막을 가져오는 도중 네트워크 오류가 발생했습니다
+    fetchSubTimeout: 유튜브 자막 가져오기 시간이 초과되었습니다
+    buttonNotFound: 자막 버튼을 찾을 수 없습니다
+    noSubtitlesFound: 현재 영상에 자막이 없습니다
+    videoNotFound: 비디오 요소를 찾을 수 없습니다
+    controlsBarNotFound: 컨트롤 바를 찾을 수 없습니다
+    aiRateLimited: 요청이 너무 많습니다. 나중에 다시 시도해 주세요
+    aiAuthFailed: API 인증에 실패했습니다. API 키를 확인해 주세요
+    aiServiceUnavailable: 번역 서비스를 일시적으로 사용할 수 없습니다
+    aiNoResponse: AI 서비스가 응답하지 않았습니다. 원문을 표시합니다
+    translatedExportFailed: 번역 자막 생성에 실패했습니다
+    translatedExportIncomplete: 모든 자막 줄을 번역하지 못했습니다
+    translatedExportSameLanguage: 원본 언어와 대상 언어가 같습니다
+hotkey:
+  control: Ctrl
+  alt: Option
+  shift: Shift
+  backtick: 백틱
+  clickAndHold: 클릭하고 길게 누르기
+translationHub:
+  searchLanguages: 언어 검색...
+  noLanguagesFound: 언어를 찾을 수 없습니다
+  exchangeLanguages: 언어 교환
+  title: 멀티 API 텍스트 번역
+  noServicesSelected: 번역 서비스가 선택되지 않았습니다
+  noServicesDescription: 위에서 번역 서비스를 선택하여 번역 카드를 확인하세요.
+  inputPlaceholder: 번역할 텍스트를 입력하세요...
+  translate: 번역
+  copiedToClipboard: 번역이 클립보드에 복사되었습니다!
+  copyTranslation: 번역 복사
+  expandCard: 카드 펼치기
+  collapseCard: 카드 접기
+  expandAllCards: 모두 펼치기
+  collapseAllCards: 모두 접기
+  deleteCard: 카드 삭제
+  translationFailed: 번역 실패
+  translationFailedFallback: 번역 실패
+  retryTranslation: 번역 재시도
+languages:
+  eng: 영어
+  cmn: 중국어 간체
+  cmnHant: 중국어 번체
+  yue: 광둥어
+  spa: 스페인어
+  rus: 러시아어
+  arb: 아랍어
+  ben: 벵골어
+  hin: 힌디어
+  por: 포르투갈어
+  ind: 인도네시아어
+  jpn: 일본어
+  fra: 프랑스어
+  deu: 독일어
+  jav: 자바어
+  kor: 한국어
+  tel: 텔루구어
+  vie: 베트남어
+  mar: 마라티어
+  ita: 이탈리아어
+  tam: 타밀어
+  tur: 터키어
+  urd: 우르두어
+  guj: 구자라트어
+  pol: 폴란드어
+  ukr: 우크라이나어
+  kan: 칸나다어
+  mai: 마이틸리어
+  mal: 말라얄람어
+  pes: 페르시아어
+  mya: 미얀마어
+  swh: 스와힐리어
+  sun: 순다어
+  ron: 루마니아어
+  pan: 펀자브어
+  bho: 보즈푸리어
+  amh: 암하라어
+  hau: 하우사어
+  fuv: 풀라어
+  bos: 보스니아어
+  hrv: 크로아티아어
+  nld: 네덜란드어
+  srp: 세르비아어
+  tha: 태국어
+  ckb: 중앙 쿠르드어
+  yor: 요루바어
+  uzn: 우즈베크어
+  zlm: 말레이어
+  ibo: 이그보어
+  npi: 네팔어
+  ceb: 세부아노어
+  skr: 사라이키어
+  tgl: 타갈로그어
+  hun: 헝가리어
+  azj: 아제르바이잔어
+  sin: 싱할라어
+  koi: 코미페르먀크어
+  ell: 그리스어
+  ces: 체코어
+  mag: 마가히어
+  run: 룬디어
+  bel: 벨라루스어
+  plt: 마다가스카르어
+  qug: 침보라소 고원 키추아어
+  mad: 마두라어
+  nya: 체와어
+  zyb: 좡어
+  pbu: 파슈토어
+  kin: 르완다어
+  zul: 줄루어
+  bul: 불가리아어
+  swe: 스웨덴어
+  lin: 링갈라어
+  som: 소말리어
+  hms: 첸동 먀오어
+  hnj: 몽어
+  ilo: 일로카노어
+  kaz: 카자흐어
+  heb: 히브리어
+  nob: 노르웨이어(보크몰)
+  nno: 노르웨이어(뉘노르스크)
+  afr: 아프리칸스어
+  sqi: 알바니아어
+  asm: 아삼어
+  eus: 바스크어
+  bre: 브르타뉴어
+  cat: 카탈루냐어
+  cos: 코르시카어
+  cym: 웨일스어
+  dan: 덴마크어
+  div: 디베히어
+  epo: 에스페란토
+  ekk: 에스토니아어
+  fao: 페로어
+  fij: 피지어
+  fin: 핀란드어
+  fry: 서프리슬란트어
+  gla: 스코틀랜드 게일어
+  gle: 아일랜드어
+  glg: 갈리시아어
+  grn: 과라니어
+  hat: 아이티 크리올어
+  haw: 하와이어
+  hye: 아르메니아어
+  ido: 이도어
+  ina: 인터링구아
+  isl: 아이슬란드어
+  kat: 조지아어
+  khm: 크메르어
+  kir: 키르기스어
+  lao: 라오어
+  lat: 라틴어
+  lvs: 라트비아어
+  lit: 리투아니아어
+  ltz: 룩셈부르크어
+  mkd: 마케도니아어
+  mlt: 몰타어
+  mon: 몽골어
+  mri: 마오리어
+  nso: 북소토어
+  oci: 오크어
+  ori: 오리야어
+  orm: 오로모어
+  prs: 다리어
+  san: 산스크리트어
+  slk: 슬로바키아어
+  slv: 슬로베니아어
+  smo: 사모아어
+  sna: 쇼나어
+  snd: 신디어
+  sot: 남소토어
+  tah: 타히티어
+  tat: 타타르어
+  tgk: 타지크어
+  tir: 티그리냐어
+  ton: 통가어
+  tsn: 츠와나어
+  tuk: 투르크멘어
+  uig: 위구르어
+  vol: 볼라퓌크
+  wol: 월로프어
+  xho: 코사어
+  ydd: 이디시어
+  aka: 아칸어
+  bam: 밤바라어
+  bis: 비슬라마어
+  bod: 티베트어
+  che: 체첸어
+  chv: 추바시어
+  dzo: 종카어
+  ewe: 에웨어
+  kab: 카빌어
+  lug: 루간다어
+  oss: 오세트어
+  ssw: 스와티어
+  ven: 벤다어
+  war: 와라이어
+  nde: 북은데벨레어
+  nbl: 남은데벨레어
+  pam: 팜팡가어
+  hil: 힐리가이논어
+  bcl: 중앙비콜어
+  min: 미낭카바우어
+  ace: 아체어
+  bug: 부기어
+  ban: 발리어
+  bjn: 반자르어
+  mak: 마카사르어
+  sas: 사삭어
+  tet: 테툼어
+  cha: 차모로어
+  niu: 니우에어
+  tvl: 투발루어
+  gil: 키리바시어
+  mah: 마셜어
+  pau: 팔라우어
+  wls: 월리스어
+  rar: 라로통가어
+  hif: 피지 힌디어

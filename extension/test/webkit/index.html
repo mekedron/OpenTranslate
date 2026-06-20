@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- theme.css is copied from the latest `pnpm build:safari` output by drive.mjs (gitignored). -->
+    <link rel="stylesheet" href="./theme.css" />
+    <style>
+      html, body { margin: 0; }
+      /* The red outline marks the popup/viewport edge so overflow is obvious in screenshots. */
+      #root { outline: 2px solid red; min-height: 100vh; }
+    </style>
+  </head>
+  <!-- Mirrors the real popup body (extension/src/entrypoints/popup/index.html). -->
+  <body class="!mr-0 overflow-x-clip">
+    <div id="root" class="text-base antialiased bg-background w-full"></div>
+    <script type="module" src="./example.tsx"></script>
+  </body>
+</html>

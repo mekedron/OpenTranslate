@@ -1,0 +1,236 @@
+import type { ProviderConfig } from "@/types/config/provider"
+import { beforeEach, describe, expect, it, vi } from "vitest"
+import { DEFAULT_CONFIG } from "@/utils/constants/config"
+
+const onMessageMock = vi.fn()
+const ensureInitializedConfigMock = vi.fn()
+const executeTranslateMock = vi.fn()
+const generateArticleSummaryMock = vi.fn()
+const putBatchRequestRecordMock = vi.fn()
+const articleSummaryCacheGetMock = vi.fn()
+const articleSummaryCachePutMock = vi.fn()
+const translationCacheGetMock = vi.fn()
+const translationCachePutMock = vi.fn()
+
+vi.mock("@/utils/message", () => ({
+  onMessage: onMessageMock,
+}))
+
+vi.mock("../config", () => ({
+  ensureInitializedConfig: ensureInitializedConfigMock,
+}))
+
+vi.mock("@/utils/host/translate/execute-translate", () => ({
+  executeTranslate: executeTranslateMock,
+}))
+
+vi.mock("@/utils/content/summary", () => ({
+  generateArticleSummary: generateArticleSummaryMock,
+}))
+
+vi.mock("@/utils/batch-request-record", () => ({
+  putBatchRequestRecord: putBatchRequestRecordMock,
+}))
+
+vi.mock("@/utils/db/dexie/db", () => ({
+  db: {
+    articleSummaryCache: {
+      get: articleSummaryCacheGetMock,
+      put: articleSummaryCachePutMock,
+    },
+    translationCache: {
+      get: translationCacheGetMock,
+      put: translationCachePutMock,
+    },
+  },
+}))
+
+function getRegisteredMessageHandler(name: string) {
+  const registration = onMessageMock.mock.calls.find(call => call[0] === name)
+  if (!registration) {
+    throw new Error(`Message handler not registered: ${name}`)
+  }
+  return registration[1] as (message: { data: Record<string, unknown> }) => Promise<unknown>
+}
+
+const llmProvider: ProviderConfig = {
+  id: "openai-default",
+  name: "OpenAI",
+  provider: "openai",
+  enabled: true,
+  apiKey: "sk-test",
+  model: { model: "gpt-5-mini", isCustomModel: false, customModel: null },
+}
+
+const googleProvider: ProviderConfig = {
+  id: "google-translate-default",
+  name: "Google Translate",
+  provider: "google-translate",
+  enabled: true,
+}
+
+const microsoftProvider: ProviderConfig = {
+  id: "microsoft-translate-default",
+  name: "Microsoft Translate",
+  provider: "microsoft-translate",
+  enabled: true,
+}
+
+describe("translation queue helpers", () => {
+  beforeEach(() => {
+    vi.resetModules()
+    vi.clearAllMocks()
+
+    ensureInitializedConfigMock.mockResolvedValue({
+      ...DEFAULT_CONFIG,
+      translate: {
+        ...DEFAULT_CONFIG.translate,
+        enableAIContentAware: true,
+      },
+    })
+
+    executeTranslateMock.mockResolvedValue("translated text")
+    generateArticleSummaryMock.mockResolvedValue("Generated summary")
+    putBatchRequestRecordMock.mockResolvedValue(undefined)
+    articleSummaryCacheGetMock.mockResolvedValue(undefined)
+    articleSummaryCachePutMock.mockResolvedValue(undefined)
+    translationCacheGetMock.mockResolvedValue(undefined)
+    translationCachePutMock.mockResolvedValue(undefined)
+  })
+
+  it(
+    "routes only llm providers through the batch queue",
+    async () => {
+      const { shouldUseBatchQueue } = await import("../translation-queues")
+
+      const deeplProvider: ProviderConfig = {
+        id: "deepl",
+        name: "DeepL",
+        provider: "deepl",
+        enabled: true,
+        apiKey: "key",
+      }
+
+      const deeplxProvider: ProviderConfig = {
+        id: "deeplx",
+        name: "DeepLX",
+        provider: "deeplx",
+        enabled: true,
+        baseURL: "https://api.deeplx.org",
+      }
+
+      expect(shouldUseBatchQueue(deeplProvider)).toBe(false)
+      expect(shouldUseBatchQueue(deeplxProvider)).toBe(false)
+      expect(shouldUseBatchQueue(llmProvider)).toBe(true)
+    },
+    15_000,
+  )
+
+  it("passes webpage context through the translation queue without generating a new summary", async () => {
+    const { setUpWebPageTranslationQueue } = await import("../translation-queues")
+    await setUpWebPageTranslationQueue()
+
+    const handler = getRegisteredMessageHandler("enqueueTranslateRequest")
+    const result = await handler({
+      data: {
+        text: "hello",
+        langConfig: DEFAULT_CONFIG.language,
+        providerConfig: llmProvider,
+        scheduleAt: Date.now(),
+        hash: "webpage-hash",
+        webTitle: "Page title",
+        webDescription: "Page description",
+        webContent: "Page body",
+        webSummary: "Ready summary",
+      },
+    })
+
+    expect(result).toBe("translated text")
+    expect(generateArticleSummaryMock).not.toHaveBeenCalled()
+    expect(executeTranslateMock).toHaveBeenCalledWith(
+      "hello",
+      DEFAULT_CONFIG.language,
+      llmProvider,
+      expect.any(Function),
+      expect.objectContaining({
+        context: {
+          webTitle: "Page title",
+          webDescription: "Page description",
+          webContent: "Page body",
+          webSummary: "Ready summary",
+        },
+      }),
+    )
+  })
+
+  it("normalizes cached Google translations before returning them", async () => {
+    translationCacheGetMock.mockResolvedValueOnce({
+      key: "webpage-hash",
+      translation: "L&#39;Iran chiama &quot;Dichiarazione&quot; &lt;span&gt;",
+    })
+
+    const { setUpWebPageTranslationQueue } = await import("../translation-queues")
+    await setUpWebPageTranslationQueue()
+
+    const handler = getRegisteredMessageHandler("enqueueTranslateRequest")
+    const result = await handler({
+      data: {
+        text: "hello",
+        langConfig: DEFAULT_CONFIG.language,
+        providerConfig: googleProvider,
+        scheduleAt: Date.now(),
+        hash: "webpage-hash",
+      },
+    })
+
+    expect(result).toBe("L'Iran chiama \"Dichiarazione\" <span>")
+    expect(executeTranslateMock).not.toHaveBeenCalled()
+    expect(translationCachePutMock).not.toHaveBeenCalled()
+  })
+
+  it("does not normalize cached non-Google translations", async () => {
+    translationCacheGetMock.mockResolvedValueOnce({
+      key: "webpage-hash",
+      translation: "A&amp;B",
+    })
+
+    const { setUpWebPageTranslationQueue } = await import("../translation-queues")
+    await setUpWebPageTranslationQueue()
+
+    const handler = getRegisteredMessageHandler("enqueueTranslateRequest")
+    const result = await handler({
+      data: {
+        text: "hello",
+        langConfig: DEFAULT_CONFIG.language,
+        providerConfig: microsoftProvider,
+        scheduleAt: Date.now(),
+        hash: "webpage-hash",
+      },
+    })
+
+    expect(result).toBe("A&amp;B")
+    expect(executeTranslateMock).not.toHaveBeenCalled()
+    expect(translationCachePutMock).not.toHaveBeenCalled()
+  })
+
+  it("exposes webpage summary generation as a separate background handler", async () => {
+    const { setUpWebPageTranslationQueue } = await import("../translation-queues")
+    await setUpWebPageTranslationQueue()
+
+    const handler = getRegisteredMessageHandler("getOrGenerateWebPageSummary")
+    const result = await handler({
+      data: {
+        webTitle: "Page title",
+        webContent: "page body",
+        providerConfig: llmProvider,
+      },
+    })
+
+    expect(result).toBe("Generated summary")
+    expect(generateArticleSummaryMock).toHaveBeenCalledWith(
+      "Page title",
+      "page body",
+      llmProvider,
+    )
+  })
+})

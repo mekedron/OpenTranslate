@@ -1,0 +1,49 @@
+# ───────── Node / WXT (extension/) ─────────
+node_modules/
+.output/
+.wxt/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+stats.html
+stats-*.html
+stats-*.json
+coverage/
+web-ext.config.ts
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# ───────── Xcode / Apple (apple/) ─────────
+# Generated web-extension bundle copied into the Xcode project (11 MB, regenerable).
+# Recreate with: scripts/build-safari.sh && scripts/sync-resources.sh
+/apple/OpenTranslate/Shared (Extension)/Resources/
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+.swiftpm/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ───────── macOS ─────────
+.DS_Store
+
+# ───────── Editors ─────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sw?
+
+# Local scratch / validation (never committed)
+.validation/
+tmp/

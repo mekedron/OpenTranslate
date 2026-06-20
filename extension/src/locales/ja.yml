@@ -1,0 +1,1106 @@
+name: OpenTranslate
+extName: OpenTranslate
+extDescription: 読書カエルは、あらゆるウェブサイトから言語を深く学ぶために設計されたオープンソースのブラウザ拡張機能です。
+uninstallSurveyUrl: https://tally.so/r/nPK6Ob
+dataTypes:
+  string: テキスト
+  number: 数値
+contextMenu:
+  translate: 翻訳
+  translateSelection: 「%s」を翻訳
+  showOriginal: 原文を表示
+sidePanel:
+  firefoxUserActionHint: Firefox では、ブラウザーのサイドバーから OpenTranslate を開いてください。
+  firefoxUserActionHelpText: Firefox サイドバーの開き方を見る
+  firefoxUserActionHelpUrl: https://support.mozilla.org/ja/kb/use-sidebar-access-tools-and-vertical-tabs
+popup:
+  theme: テーマ
+  autoLang: 自動検出
+  sourceLang: ソース言語
+  targetLang: 翻訳言語
+  translate: 翻訳
+  showOriginal: 原文を表示
+  enabledFloatingButton: フローティングボタンを有効化
+  enabledSelectionToolbar: 選択ツールバーを有効化
+  alwaysTranslate: このサイトを常に翻訳する
+  addToWhitelist: このサイトで拡張機能を有効にする
+  addToBlacklist: このサイトで拡張機能を無効にする
+  options: オプション
+  hover: ホバー
+  translateParagraph: 段落を翻訳
+  translationModeToggle:
+    tooltip:
+      bilingual:
+        current: 現在はバイリンガル
+        action: クリックして翻訳のみへ切り替え
+      translationOnly:
+        current: 現在は翻訳のみ
+        action: クリックしてバイリンガルへ切り替え
+  hub:
+    tooltip: 複数の翻訳モデルで同時にテキストを翻訳
+  discord:
+    tooltip: Discordに参加して開発者とつながり、新機能を先行体験しましょう
+  blog:
+    notification: 読書カエルの最新情報
+  aiSmartContext: AI スマートコンテキスト
+  aiSmartContextDescription: ウェブページのコンテキストを使用して翻訳品質を向上させます。LLM翻訳プロバイダーが必要です。
+  more:
+    title: その他
+    translationHub: 翻訳ハブ
+    joinDiscord: Discordに参加
+    joinWechat: WeChatグループに参加
+    starGithub: Githubでスター
+    rateUs: レビューを書く
+    ebook: サードパーティ電子書籍リーダー
+    tutorial: 使い方ガイド
+errorRecovery:
+  title: 問題が発生しました
+  description: 復旧モードが有効です。現在の設定をバックアップとしてエクスポートし、設定をリセットして再試行してください。
+  backupTitle: まず現在の設定をバックアップ（推奨）
+  exportWithApiKeys: APIキーを含めてエクスポート
+  exportWithoutApiKeys: APIキーを除外してエクスポート
+  recoveryTitle: 復旧オプション
+  refreshPage: ページを再読み込み
+  resetAction: 設定をデフォルトにリセット
+  resetSuccess: 復旧が完了しました。設定はリセットされました
+  resetFailed: 復旧に失敗しました。設定をリセットできませんでした
+  errorDetails: エラー詳細
+  resetDialog:
+    title: 設定をリセットしますか？
+    description: 現在の設定はデフォルト値で上書きされます。
+    confirm: リセット
+    cancel: キャンセル
+options:
+  commandPalette:
+    placeholder: 設定を検索...
+    noResults: 設定が見つかりません
+  sidebar:
+    settings: 設定
+    tools: ツール
+    product: 製品
+  tools:
+    translationHub: 翻訳ハブ
+  setAPIKeyWarning:
+    please: 設定ページで
+    page: APIキーを設定してください
+  betaExperience:
+    title: Beta 体験
+    description: 実験的機能と新機能への早期アクセスを有効にします。これらの機能は不安定または不完全な場合があります。
+    enabled: Beta 体験を有効にする
+  apiProviders:
+    title: APIプロバイダー
+    description: 翻訳および語彙分析機能用のAPIプロバイダーを設定。20以上の内蔵プロバイダーに加え、OpenAI互換APIもサポートしています。
+    addProvider: プロバイダーを追加
+    badges:
+      featureCount: $1 件の機能
+    dialog:
+      title: 新しいプロバイダーを追加
+      groups:
+        builtInProviders:
+          title: 組み込みLLMプロバイダー
+          description: 組み込みの大規模言語モデルプロバイダー、Base URLなどの設定が不要
+        openaiCompatibleProviders:
+          title: OpenAI互換カスタムプロバイダー
+          description: 希望するAIプロバイダーが見つからない場合は、Custom Providerを選択してZhipu AIなどのOpenAI互換プロバイダーを設定できます
+        pureTranslationProviders:
+          title: 純粋翻訳プロバイダー
+          description: 大規模言語モデル機能を持たない翻訳専門のプロバイダー
+    form:
+      fields:
+        name: 名前
+        description: 説明
+        apiKey: APIキー
+        baseURL: ベースURL
+        optional: オプション
+      duplicate: 複製
+      delete: 削除
+      deleteDialog:
+        title: プロバイダーを削除しますか？
+        description: この操作は元に戻せません。このプロバイダーを使用している機能は、他の利用可能なプロバイダーに自動的に再割り当てされます。
+        confirm: 削除
+        cancel: キャンセル
+      atLeastOneLLMProvider: 最低1つのLLM翻訳プロバイダーが必要です。
+      duplicateProviderName: '重複するプロバイダー名 "$1"'
+      defaultProvider:
+        translate: デフォルト翻訳プロバイダーに設定
+      models:
+        translate:
+          title: 翻訳モデル
+          customTitle: カスタム翻訳モデル
+          placeholder: モデルを選択してください
+        fetchModels: 利用可能なモデルを取得
+        fetchError: モデルの取得に失敗しました
+        clickToRetry: クリックして再試行
+        noModels: 利用可能なモデルがありません
+        selectModel: モデルを選択
+        apiKeyRequired: 先にAPIキーを追加してください
+        searchModels: モデルを検索...
+        noModelsFound: モデルが見つかりません
+      featureProviders: 機能プロバイダー
+      advancedOptions: 詳細オプション
+      providerSettingLabels:
+        region: リージョン
+        apiMode: API モード
+        resourceName: Azure リソース名（任意）
+        apiVersion: API バージョン
+      providerSettingOptionLabels:
+        responses: Responses API
+        chatCompletions: Chat Completions
+      temperature: 温度
+      temperatureHint: 応答のランダム性を制御します。低い値（0）はより決定的で、高い値はより創造的です。範囲はプロバイダーによって異なります。空欄の場合はプロバイダーのデフォルト値を使用します。
+      headers: ヘッダー
+      headersHint: AIプロバイダークライアント作成時に送信するカスタムHTTPヘッダー。空欄の場合はプロバイダーのデフォルトを使用し、{} でデフォルトを無効化します。
+      providerOptions: プロバイダーオプション
+      providerOptionsHint: 思考/推論モードなどの非標準API機能のためのプロバイダー固有オプション。詳細はVercel AI SDKドキュメントまたはプロバイダーの公式ドキュメントをご覧ください。
+      providerOptionsDocsLink: プロバイダードキュメントを見る
+      providerOptionsRecommendationTrigger: 推奨プロバイダーオプションを表示
+      providerOptionsRecommendationTitle: 推奨プロバイダーオプションが見つかりました
+      providerOptionsRecommendationDescription: 推奨設定を確認し、手動で適用してください。
+      providerOptionsRecommendationApply: 適用
+      providerOptionsRecommendationApplied: 適用済み
+      invalidJson: 無効なJSON形式
+    providers:
+      description:
+        openai: GPT-4oなどのモデルを提供
+        azure: Azure のデプロイ経由で OpenAI モデルを利用
+        deepseek: 中国国内での使用を推奨
+        openrouter: 複数のLLMプロバイダの統合インターフェース、従量課金制
+        ollama: ローカル大規模言語モデルサービス
+        google: 高度な推論能力を持つGoogleの主力AIモデル
+        anthropic: 安全性と推論能力に優れたClaudeモデル
+        xai: リアルタイムデータアクセス可能なGrokモデルを提供するイーロン・マスクのAI企業
+        siliconflow: 中国および国際モデル向けの高性能推論プラットフォーム
+        tensdaq: 革命的入札型AI MaaSプラットフォーム、市場の需給で価格が決まり高コスト固定料金を排除
+        openaiCompatible: OpenAI API互換のサードパーティー
+        deeplx: 非公式 DeepL API
+        deepl: 公式 DeepL API
+        bedrock: エンタープライズグレードの基盤モデル向けAWSマネージドサービス
+        groq: 超高速LLM推論速度に特化したハードウェア
+        deepinfra: 人気のオープンソースモデル向けコスト効率的なクラウド推論
+        mistral: 効率的な多言語モデルに特化したヨーロッパのAI企業
+        togetherai: オープンソースモデルの実行とファインチューニングのための協働プラットフォーム
+        cohere: 強力な多言語およびRAG機能を持つエンタープライズ向けAI
+        fireworks: オープンソースモデル向けプロダクション対応推論プラットフォーム
+        cerebras: 高速翻訳とテキスト分析に最適な超高速AI推論
+        replicate: 専門的な翻訳タスクのための多様なオープンソースモデルへのアクセス
+        perplexity: 文脈的翻訳と読解支援のためのリアルタイム知識強化AI
+        vercel: ウェブコンテンツの翻訳と分析に最適化されたAIモデル
+        volcengine: ByteDanceのクラウドAIプラットフォーム、Doubaoモデルを提供
+        minimax: MiniMax AIプラットフォーム、先進的なMiniMax-M2モデルを提供
+        alibaba: アリババクラウドのQwenモデルシリーズ、高度な推論と多言語機能を備える
+        moonshotai: Moonshot AIのKimiモデルシリーズ、優れた推論と長コンテキスト能力
+        huggingface: Hugging Face推論API、数千のオープンソースモデルへのアクセスを提供
+    apiKey:
+      showAPIKey: APIキーを表示
+    howToConfigure: 設定方法は?
+    testConnection:
+      button: 接続テスト
+      testing: テスト中...
+  general:
+    title: 一般
+    appearance:
+      title: 外観
+      theme: テーマ
+      system: システム
+      light: ライト
+      dark: ダーク
+    featureProviders:
+      title: 機能プロバイダー
+      description: 各機能に使用するプロバイダーを選択
+      customActions: カスタムAIアクション
+      features:
+        translate: ページ翻訳
+        selectionToolbar_translate: 選択ツールバー翻訳
+        tts: テキスト読み上げ
+        inputTranslation: 入力翻訳
+        videoSubtitles: 動画字幕
+    translationConfig:
+      model:
+        title: モデル
+        enterCustomModel: カスタムモデル名を入力
+    clearCache:
+      title: キャッシュクリア
+      description: ブラウザのすべての翻訳キャッシュをクリアします
+      clearing: クリア中...
+      dialog:
+        title: キャッシュクリア
+        trigger: キャッシュクリア
+        confirm: 確認
+        cancel: キャンセル
+        description: この操作により、すべての翻訳キャッシュがクリアされます。この操作は元に戻せません。
+    languageDetection:
+      title: 言語検出
+      description: 自動翻訳の言語検出、スキップ言語検出、読み上げの音声選択精度に影響します。
+      mode:
+        basic: 基本
+        llm: LLM
+      provider:
+        label: 検出プロバイダー
+        placeholder: プロバイダーを選択
+      status:
+        noProviders: LLMプロバイダーを設定してください
+        basicRecommend: LLM有効化を推奨
+        llmEnabled: LLM検出が有効
+  siteControl:
+    title: サイト制御
+    mode:
+      title: 拡張機能の有効化モード
+      description: ブラックリストモードを使用して特定のサイトで拡張機能を無効にするか、ホワイトリストモードを使用して特定のサイトのみに制限できます。
+      blacklist: リストされたサイトでのみ無効
+      whitelist: リストされたサイトでのみ実行
+    patterns:
+      enterUrlPattern: URLパターンを入力（例：example.com）
+      urlPattern: URLパターン
+  overlayTools:
+    title: オーバーレイツール
+    floatingButton:
+      title: フローティングボタン
+    selectionToolbar:
+      title: 選択ツールバー
+    contextMenu:
+      title: コンテキストメニュー
+    inputTranslation:
+      title: 入力翻訳
+  inputTranslation:
+    provider:
+      title: 翻訳プロバイダー
+      description: 入力翻訳に使用する翻訳プロバイダーを選択
+      label: プロバイダー
+    toggle:
+      title: トリプルスペース翻訳を有効化
+      description: 任意の入力欄でスペースキーを素早く3回押すと内容を翻訳します
+    languages:
+      title: 翻訳言語
+      description: 入力翻訳のソース言語とターゲット言語を選択
+      sourceCode: ページソース言語
+      targetCode: ページターゲット言語
+      enableCycle: 毎回方向を切り替え
+    threshold:
+      title: トリガーしきい値
+      description: スペースキー押下間の時間間隔
+      label: しきい値 (ミリ秒)
+      hint: 連続したスペースキー押下間の時間間隔 (100-1000ミリ秒)
+      error: 値は $1 から $2 の間である必要があります
+  floatingButtonAndToolbar:
+    title: フローティングボタンとツールバー
+    floatingButtonDemoImageAlt: フローティングボタンデモ
+    selectionToolbarDemoImageAlt: 選択ツールバーデモ
+    floatingButton:
+      globalToggle:
+        title: フローティングボタンを有効化
+        description: ウェブページにフローティングボタンを表示し、OpenTranslate機能に素早くアクセス
+      closeMenu:
+        disableForSite: このサイトで無効化
+        disableGlobally: グローバルで無効化
+      disabledSites:
+        title: フローティングボタン無効化サイト
+        description: フローティングボタンを無効化するウェブサイトを設定します
+        enterUrlPattern: URL パターンを入力
+        urlPattern: URL パターン
+      clickAction:
+        title: クリック動作
+        description: フローティングボタンをクリックしたときの動作を選択
+        panel: サイドパネルを開く
+        translate: ページ翻訳を切り替え
+      side:
+        title: ボタンの位置
+        description: フローティングボタンをページのどちら側に固定するかを選択します
+        left: 左側
+        right: 右側
+    selectionToolbar:
+      globalToggle:
+        title: 選択ツールバーを有効化
+        description: ウェブページでテキストを選択したときにツールバーを表示し、すばやく翻訳・読み上げ・AIアクションを実行します
+      opacity:
+        title: 透明度
+        description: 選択ツールバーとそこから開く展開ウィンドウの透明度を調整します
+      featureToggles:
+        title: 機能トグル
+        description: 選択ツールバーに表示する組み込み機能を選択
+        translate: 翻訳
+        speak: 読み上げ
+      shortcut:
+        title: Selection Translation Shortcut
+        description: Customize the shortcut key for translating selected text
+      closeMenu:
+        disableForSite: このサイトで無効化
+        disableGlobally: グローバルで無効化
+      disabledSites:
+        title: 選択ツールバー無効化サイト
+        description: 選択ツールバーを無効化するウェブサイトを設定します
+        enterUrlPattern: URL パターンを入力
+        urlPattern: URL パターン
+      errors:
+        customActionFailed: カスタムアクションに失敗しました
+        customActionFailedFallback: カスタムアクションのリクエストに失敗しました
+        actionUnavailable: 選択したアクションは利用できません
+        missingSelection: 選択されたテキストがありません
+        providerDisabled: 選択したプロバイダーは無効です
+        providerUnavailable: 選択したプロバイダーは利用できません
+      features:
+        provider: プロバイダー
+        selectProvider: プロバイダーを選択
+        noProviderAvailable: 利用可能なプロバイダーがありません
+        useProviderDefaultModel: プロバイダーのデフォルトモデルを使用
+        useCustomModel: カスタムモデルを使用
+        customModel: カスタムモデル
+        model: モデル
+        modelNotAvailableForNonLLM: モデル設定はLLMプロバイダーでのみ利用可能です
+        translate:
+          title: 選択翻訳
+          description: 選択ツールバー翻訳機能のプロバイダーとモデルを設定
+      customActions:
+        title: カスタム AI アクション
+        description: 選択テキスト向けに独自の構造化 AI アクションを追加
+        add: AI アクションを追加
+        edit: AI アクションを編集
+        empty: カスタム AI アクションはまだありません
+        noEnabledLlmProvider: カスタム AI アクションを作成する前に、少なくとも1つのLLMプロバイダーを有効化してください
+        table:
+          name: 名前
+          provider: プロバイダー
+          fields: フィールド
+          actions: 操作
+        form:
+          name: 名前
+          icon: アイコン
+          iconField:
+            chooseAriaLabel: アイコンを選択
+            chooseTitle: アイコンを選択
+            inputPlaceholder: アイコン名を入力
+            helpAriaLabel: アイコンのヘルプ
+            helpTitle: 欲しいアイコンが見つかりませんか？
+            helpStepBrowsePrefix: ""
+            helpStepBrowseSuffix: でアイコンを探す
+            helpStepCopyPrefix: "たとえば "
+            helpStepCopySuffix: " のようなアイコン名をコピーして、入力欄に貼り付けてください。"
+          provider: プロバイダー（構造化出力対応が必要）
+          selectProvider: プロバイダーを選択
+          systemPrompt: システムプロンプト
+          prompt: プロンプト
+          outputSchema: 出力スキーマ
+          addField: フィールドを追加
+          fieldName: フィールド名
+          fieldType: フィールド型
+          fieldDescription: 説明
+          fieldDescriptionPlaceholder: このフィールドに含めるべき内容を説明してください...
+          fieldSpeaking: 読み上げを有効にする
+          actions: 操作
+          cancel: キャンセル
+          save: 保存
+          defaultFieldName: 結果
+          fieldNamePlaceholder: フィールド名
+          autoFieldPrefix: フィールド
+          addFieldDialog:
+            title: 出力フィールドを追加
+          editFieldDialog:
+            title: 出力フィールドを編集
+            save: 保存
+          deleteFieldDialog:
+            title: 出力フィールドを削除しますか？
+            description: この出力フィールドは削除されます。
+            confirm: 削除
+            cancel: キャンセル
+          tokens:
+            selection: 選択したテキスト内容
+            paragraphs: 選択範囲と交差する段落内容。空行で連結され、カスタム AI アクションに送信する際は先頭 2000 文字に切り詰められます
+            targetLanguage: ユーザーのターゲット言語
+            webTitle: ウェブページのタイトル
+            webContent: 現在のページから抽出されたウェブページ本文（先頭 2000 文字に切り詰め）
+          delete: 削除
+          deleteDialog:
+            title: カスタムアクションを削除しますか？
+            description: この操作は元に戻せません。
+            confirm: 削除
+            cancel: キャンセル
+        errors:
+          nameRequired: 名前は必須です
+          duplicateName: '重複するアクション名 "$1"'
+          invalidIcon: 無効な Iconify アイコン文字列です
+          providerRequired: 有効な LLM プロバイダーを選択してください
+          outputSchemaRequired: 少なくとも1つの出力フィールドを追加してください
+          fieldKeyRequired: フィールド名は必須です
+          duplicateFieldKey: フィールド名は一意である必要があります
+    contextMenu:
+      title: コンテキストメニュー
+      translate:
+        title: 右クリック翻訳を有効化
+        description: ブラウザの右クリックメニューに翻訳オプションを追加し、ページや選択テキストを素早く翻訳
+  translation:
+    title: 翻訳
+    requestQueueConfig:
+      title: 翻訳速度
+      firstOnDescription: 翻訳リクエストの処理速度を調整し、
+      lastOnDescription: を利用して実装する
+      capacity:
+        title: 最大バーストリクエスト数
+        description: 許容される一時的バーストリクエスト数は、短期間内に同時処理可能な最大リクエスト数を決定する
+      rate:
+        title: 秒間平均リクエスト数
+        description: 平均秒間リクエスト数（ただし、最大バーストリクエスト数を設定し一時的な超過リクエスト送信を許可）
+    batchQueueConfig:
+      title: バッチ翻訳
+      description: バッチ翻訳時の文字数制限と最大段落数を設定（大規模言語モデル翻訳でのみ有効）
+      maxCharactersPerBatch:
+        title: 最大文字数
+        description: バッチリクエストあたりの最大文字数で、各翻訳のコンテンツ量を制御します
+      maxItemsPerBatch:
+        title: 最大段落数
+        description: 各バッチ翻訳の最大段落数、各翻訳のコンテンツ量を制御します
+      statisticsLink: 過去 7 日間で約 $1 のコストを節約しました
+    autoTranslateWebsite:
+      title: ウェブサイトに基づく自動翻訳
+      description: このサイトを常に翻訳する
+      urlPattern: URL パターン
+      enterUrlPattern: URL パターンを入力
+    neverAutoTranslateWebsite:
+      title: Never Auto Translate Based on Website
+      description: Never automatically translate this website
+      urlPattern: URL Pattern
+      enterUrlPattern: Enter URL Pattern
+    personalizedPrompts:
+      title: 個人化プロンプト
+      description: 異なるタイプのプロンプトをカスタマイズすることで、翻訳時にプロンプトタイプを自ら調整できます。プロンプトとは、ユーザーがLLMに送信するテキストを指します。
+      communityPrompts: コミュニティからプロンプトを取得・共有
+      communityPromptsUrl: https://github.com/mekedron/OpenTranslate/discussions/821
+      addPrompt: プロンプトを追加
+      default: デフォルト
+      importSuccess: インポート成功
+      import: インポート
+      export: エクスポート
+      current: 使用中
+      editPrompt:
+        title: プロンプトを編集
+        name: 名前
+        systemPrompt: システムプロンプト
+        prompt: プロンプト
+        promptCellInput:
+          input: 翻訳するテキスト内容
+          targetLanguage: 目標言語
+          webTitle: ウェブページタイトル
+          webDescription: ページメタデータのウェブページ説明
+          webContent: ウェブページ本文（先頭 2000 文字に切り詰め）
+          webSummary: ウェブページ要約（AI スマートコンテキストが必要）
+        save: 保存
+        close: キャンセル
+      deletePrompt:
+        title: プロンプトを削除
+        description: このプロンプトを削除しますか
+        confirm: 確認
+        cancel: キャンセル
+      exportPrompt:
+        exportSelected: 選択したものをエクスポート
+        cancel: キャンセル
+    translationStyle:
+      title: 翻訳表示スタイル
+      description: 翻訳結果と原文を区別するために好みのスタイルを設定
+      useCustomStyle: カスタム CSS スタイルを使用
+      useCustomStyleDescription: 任意の CSS に対応、フォント、アニメーション、言語別スタイルなど
+      presetStyle: プリセットスタイル
+      cssEditor: CSSエディター
+      preview: プレビュー
+      stylePreviewLanguage: 言語
+      stylePreviewDirection: 方向
+      stylePreviewTranslatedText: 翻訳済みテキスト
+      style:
+        default: なし
+        blur: ぼかし効果
+        blockquote: 引用
+        weakened: 弱化
+        dashedLine: 破線
+        border: 枠線
+        textColor: テキストカラー
+        background: 背景
+      customCSS:
+        editor:
+          placeholder: |
+            /* 例：カスタムカラーと背景のスタイル */
+            [data-opentranslate-custom-translation-style='custom'] {
+              color: #414535;
+              background-color: light-dark(#F2E3BC, #C19875);
+              padding: 2px 4px;
+              border-radius: 4px;
+            }
+          saveButton: 保存
+          savedButton: 保存済み
+          validation:
+            validating: 検証中...
+            valid: CSSは有効です
+            syntaxError: CSSに構文エラーがあります
+            tooLong: CSSが長すぎます
+            saved: すべての変更が保存されました
+    translationMode:
+      title: 翻訳モード
+      description: 翻訳テキストの表示方法を選択：バイリンガルまたは翻訳のみ
+      mode:
+        bilingual: バイリンガル
+        translationOnly: 翻訳のみ
+    translateRange:
+      title: 翻訳範囲
+      description: ページのメインコンテンツのみを翻訳するか、すべてのコンテンツを翻訳するかを選択します。
+      range:
+        main: メインコンテンツ
+        all: すべてのコンテンツ
+    pageTranslationShortcut:
+      title: ページ翻訳ショートカットキー
+      description: ウェブページ全体を翻訳するショートカットキーをカスタマイズします
+    preloadConfig:
+      title: 事前翻訳範囲
+      description: ビューポート下のコンテンツをどれだけ事前翻訳するかを制御し、API コストを節約します
+      margin:
+        title: プリロード距離（ピクセル）
+        description: ビューポートからどれくらい離れた位置でコンテンツの翻訳を開始するか。小さい値は API コストを節約しますが、スクロール時に遅延が発生する可能性があります。
+      threshold:
+        title: 可視性しきい値
+        description: 翻訳をトリガーするために必要な要素の可視性の割合（0-1）。高い値は、要素がより多く表示されるまで翻訳を遅らせます。
+    smallParagraphFilter:
+      title: 短いテキストフィルター
+      description: 指定した文字数または単語数より少ないテキストノードの翻訳をスキップします（0 = 無効）
+      minCharacters:
+        title: 最小文字数
+        description: この値より少ない文字数のテキストノードは翻訳されません。文字数には空白が含まれます。
+      minWords:
+        title: 最小単語数
+        description: この値より少ない単語数のテキストノードは翻訳されません。すべての言語で正確な単語カウントのために Intl.Segmenter を使用します。
+      error: 値は $1 から $2 の間である必要があります
+    nodeTranslationHotkey:
+      title: ホバーまたは長押し翻訳ショートカットキー
+      description: ホバー翻訳の修飾キーをカスタマイズするか、長押しで段落を翻訳します
+      enable: 有効化
+    llmProviderConfigured: $1の LLM プロバイダー選択済み
+    llmProviderNotConfigured: $1の LLM プロバイダー未選択
+    autoTranslateLanguages:
+      title: 言語に基づく自動翻訳
+      description: 特定の言語が検出された場合にページコンテンツを自動翻訳します
+      selectLanguages: 言語を選択
+      detection:
+        label: 言語検出
+        basic: 基本
+        llm: LLM
+        description: 基本検出は高速で無料です。LLM 検出はより正確ですが、遅延と API コストが増加します。自動翻訳言語の設定が必要です。
+    skipLanguages:
+      title: 言語に基づく自動スキップ
+      description: 指定された言語が検出されると、段落の翻訳を自動的にスキップします
+      targetLanguageSkip: ターゲット言語をスキップ
+      targetLanguageSkipDescription: 翻訳前に段落がすでにターゲット言語かどうかを事前検出します。一致したテキストはリクエストを送信せずにスキップされます。オフにしても、翻訳結果が原文と同じ場合に非表示にする後段の保護は変わりません。
+      selectLanguages: 言語を選択
+      detection:
+        label: 言語検出
+        basic: 基本
+        llm: LLM
+        description: 基本検出は高速で無料です。LLM 検出はより正確ですが、遅延と API コストが増加します。
+    aiContentAware:
+      title: AI スマートコンテキスト翻訳
+      description: ウェブページのコンテキストを AI に提供して翻訳品質を向上させます
+      enable: AI スマートコンテキスト翻訳を有効にする
+      enableDescription: AI はウェブページの要約を使用して翻訳精度を向上させます。LLM プロバイダーが必要です。翻訳開始時に遅延が発生し、API コストが増加します。
+  tts:
+    title: テキスト読み上げ
+    description: Edge TTS の音声設定で読み上げボタンをカスタマイズします。
+    voice:
+      label: ボイス
+      fallback: フォールバック
+      selectPlaceholder: ボイスを選択
+      noVoicesFound: ボイスが見つかりません
+      previewSample: OpenTranslate からこんにちは！朗読するときはこのように聞こえます。
+    languageVoice:
+      label: 言語別ボイス
+      reset: リセット
+      description: 言語を選択し、TTS がその言語を検出したときに使用するボイスを割り当てます。
+    rate:
+      label: 速度 (%)
+      hint: -100 から 100 までの整数を入力できます
+    pitch:
+      label: ピッチ (Hz)
+      hint: -100 から 100 までの整数を入力できます
+    volume:
+      label: 音量 (%)
+      hint: -100 から 100 までの整数を入力できます
+    betaDisabled: テキスト読み上げ設定をカスタマイズするには Beta 体験を有効にしてください。
+  statistics:
+    title: 統計
+    batchRequest:
+      title: バッチ翻訳で節約されたリクエスト
+      description: 期間内にバッチ翻訳で節約されたリクエストの割合
+      originalRequestCount: 元のリクエスト数
+      batchRequestCount: バッチリクエスト数
+  config:
+    title: 設定
+    about:
+      title: OpenTranslate について
+      description: OpenTranslate は 2025 年 4 月に生まれました
+      mission: OpenTranslate は、AI 時代における質の高い教育機会への平等なアクセスを広げるため、語学学習、医学、その他の知識集約型分野で、実際の教師に近い学習体験を手頃な価格で提供することを目指しています。
+    sync:
+      title: 手動設定同期
+      description: 手動で設定をインポート・エクスポート
+      import: 設定をインポート
+      export: 設定をエクスポート
+      importSuccess: 設定のインポートが完了しました
+      exportSuccess: 設定のエクスポートが完了しました
+      importError: インポートに失敗しました
+      versionTooNew: インポートされた設定のバージョンが新しいため、OpenTranslateを最新バージョンにアップグレードしてください
+      migrationError: 移行に失敗しました
+      validationError: 設定の検証に失敗しました
+      exportOptions:
+        title: エクスポートオプションを選択
+        description: エクスポートする設定にAPIキーを含めるかどうかを選択してください。APIキーを含めると機密情報が漏洩する可能性があるため、安全な環境でのみ使用することをお勧めします。
+        includeAPIKeys: APIキーを含める
+        excludeAPIKeys: APIキーを含めない
+        cancel: キャンセル
+      viewConfig:
+        expand: 設定を展開
+        collapse: 設定を折りたたむ
+      googleDrive:
+        title: Google Driveクラウド同期
+        description: リモートが新しい場合はダウンロード、ローカルが新しい場合はアップロード
+        sync: Google Driveに同期
+        syncing: 同期中...
+        syncSuccess:
+          uploaded: ローカル設定をクラウドにアップロードしました
+          downloaded: リモート設定を適用しました
+          sameChanges: ローカルとリモートの変更が一致、同期しました
+          noChange: 既に同期済みです
+          unresolved: 競合を解決し、ローカルとクラウドに同期しました
+        syncError: 同期に失敗しました。もう一度お試しください
+        metadataCorrupted: 同期メタデータが破損しています。リモート設定を適用しました
+        lastSyncTime: 最終同期時間
+        logout: ログアウト
+        logoutSuccess: Googleアカウントからログアウトしました
+        unresolved:
+          title: 設定の同期解決
+          description: ローカルとリモートの設定が異なります。各フィールドについて、保持するバージョンを選択してください。
+          resolved: 解決済み
+          unresolved: 未解決
+          localValue: ローカル値
+          remoteValue: リモート値
+          useLocal: ローカルを使用
+          useRemote: リモートを使用
+          useAllLocal: すべてローカルを使用
+          useAllRemote: すべてリモートを使用
+          reset: 選択をリセット
+          progress: $1/$2 個の変更を解決しました
+          confirm: 同期を確認
+          cancel: キャンセル
+          hasUnresolvedInChildren: ⚠ 未解決の変更を含む
+          item: 項目
+          items: 項目
+          unresolvedPrompt: "[未解決 - 選択してください]"
+          localLatest: ローカル最新
+          remoteLatest: リモート最新
+          bothChanged: 両方が変更されました
+          localChanged: ローカルが変更されました
+          remoteChanged: リモートが変更されました
+          configValid: 設定は有効です
+          configInvalid: 設定は無効です
+          resolveToContinue: 続行するには競合を解決してください
+          validationAlert:
+            title: マージされた設定に検証エラーがあります
+            description: 以下の差異を調整して修正してください：
+          moreErrors: ...他 $1 件のエラー
+    backup:
+      title: 設定のバックアップ
+      description: 設定が変更された場合、1時間ごとに自動的にバックアップが作成されます。以前の設定をここで復元できます。（最大 $1 個のバックアップ）
+      loading: バックアップを読み込んでいます...
+      backupNow: 今すぐバックアップ
+      backupSuccess: バックアップが作成されました
+      restoreSuccess: 設定が復元されました
+      empty:
+        title: まだバックアップがありません
+        description: 設定が変更された場合、1時間ごとに自動的にバックアップが作成されます。
+      item:
+        extensionVersion: 拡張機能のバージョン：
+        schemaVersion: 設定のバージョン：
+        restore: 復元
+        export: エクスポート
+        delete: 削除
+      restore:
+        title: 設定のバックアップを復元しますか？
+        description: 現在の設定が最新のバックアップと異なる場合、自動的に現在の設定がバックアップされます。バックアップ数が上限を超える場合、最も古いバックアップが削除される可能性があります。
+        cancel: キャンセル
+        confirm: 復元
+      delete:
+        title: バックアップを削除しますか？
+        description: このバックアップを削除してもよろしいですか？この操作は元に戻せません。
+        cancel: キャンセル
+        confirm: 削除
+    resetConfig:
+      title: 設定をリセット
+      description: すべての設定をデフォルト値にリセットします。
+      dialog:
+        title: 設定をリセット
+        trigger: 設定をリセット
+        confirm: 確認
+        cancel: キャンセル
+        description: この操作は、すべての設定をデフォルト値にリセットします。ご確認ください。
+  videoSubtitles:
+    title: 動画字幕
+    description: 現在 YouTube 動画字幕のみ対応
+    provider:
+      title: 翻訳プロバイダー
+      description: 動画字幕翻訳に使用する翻訳プロバイダーを選択
+      label: プロバイダー
+    enable: 動画字幕を有効にする
+    enableDescription: 有効にすると、YouTube プレーヤーのコントロールバーに翻訳ボタンが表示されます。クリックして字幕の翻訳を開始します。
+    autoStart: 字幕を自動有効化
+    autoStartDescription: 動画の読み込みが完了したら、自動的に字幕翻訳を有効にします。
+    style:
+      title: 字幕スタイル
+      description: 字幕の外観をカスタマイズ
+      preview: プレビュー
+      displayMode:
+        title: 表示モード
+        bilingual: バイリンガル
+        originalOnly: 原文のみ
+        translationOnly: 翻訳のみ
+      translationPosition:
+        title: 翻訳の位置
+        above: 上
+        below: 下
+      generalSettings: 一般設定
+      mainSubtitle: メイン字幕
+      translationSubtitle: 翻訳字幕
+      containerStyle: 背景
+      fontFamily: フォント
+      fontScale: フォントサイズ
+      color: 色
+      fontWeight: フォントウェイト
+      backgroundOpacity: 背景の透明度
+      reset: デフォルトにリセット
+    aiSegmentation:
+      title: AI スマート区切り
+      enable: AI スマート区切りを有効にする
+      enableDescription: AIを使用して字幕を賢く区切り、読みやすさを向上させます。タイムラインはAIが判断するため、タイミングのずれが生じる場合があります。LLM翻訳プロバイダーが必要です。
+      clearCache: キャッシュをクリア
+      clearing: クリア中...
+      clearCacheDialog:
+        title: AI区切りキャッシュをクリア
+        description: すべてのキャッシュされたAI区切り結果が削除されます。次回AI区切りを有効にして動画を再生すると、字幕が再処理されます。
+        cancel: キャンセル
+        confirm: 確認
+    requestQueueConfig:
+      title: 字幕翻訳速度
+      firstOnDescription: 字幕翻訳リクエストの処理速度を
+      lastOnDescription: アルゴリズムで調整
+      capacity:
+        title: 最大バースト数
+        description: 短時間で同時に処理できる字幕翻訳リクエストの最大数
+      rate:
+        title: 平均リクエスト数/秒
+        description: 1秒あたりの平均字幕翻訳リクエスト数。最大バースト数を設定して一時的に超過リクエストを送信できます
+    batchQueueConfig:
+      title: 字幕バッチ翻訳
+      description: バッチ翻訳時の文字数制限と最大段落数を設定（大規模言語モデル翻訳でのみ有効）
+      maxCharactersPerBatch:
+        title: 最大文字数
+        description: バッチリクエストあたりの最大文字数で、各翻訳のコンテンツ量を制御します
+      maxItemsPerBatch:
+        title: 最大段落数
+        description: 各バッチ翻訳の最大段落数、各翻訳のコンテンツ量を制御します
+    customPrompts:
+      title: カスタム字幕プロンプト
+      description: 字幕翻訳用のプロンプトテンプレートをカスタマイズします（ウェブページ翻訳プロンプトとは別です）
+      editPrompt:
+        promptCellInput:
+          input: 翻訳する字幕テキスト
+          targetLanguage: 対象言語
+          webTitle: ウェブページタイトル
+          webDescription: ページメタデータのウェブページ説明
+          videoSummary: 動画要約（AI スマートコンテキストが必要）
+  whatsNew:
+    title: 新機能
+  rateUs:
+    title: レビューを書く
+side:
+  sourceLang: ソース言語
+  targetLang: 翻訳言語
+  fileExport: ファイルエクスポート
+translateService:
+  title: 翻訳サービス
+  description: ウェブページの翻訳にのみ使用
+  normalTranslator: 通常翻訳
+  aiTranslator: AI翻訳
+  selectServices: サービスを選択
+  translationProviders: 翻訳サービス
+  configureAPI: API設定
+translatePrompt:
+  title: AI翻訳スタイル
+  description: 翻訳時に使用するプロンプトを選択できます。オプションページでカスタムプロンプトを追加または変更できます
+languageLevel: ソース言語のレベル
+languageLevels:
+  beginner: 初級
+  intermediate: 中級
+  advanced: 上級
+noAPIKeyConfig:
+  warning: AIモデルを使用するには、まずオプションページでAPIキーを設定してください
+  warningWithLink:
+    youMust: まず
+    setTheAPIKey: APIキーを設定
+    firstOnThe: する必要があります（
+    optionsPage: オプションページ
+    page: ）
+languageDetection:
+  llmFailed: LLM言語検出に失敗しました。基本検出にフォールバックしました
+translation:
+  sameLanguage: ソース言語とターゲット言語は異なる必要があります
+  autoModeSameLanguage: 検出された言語 '$1' はターゲット言語と同じです
+speak:
+  fetchingAudio: 音声を生成しています...
+  playingAudio: 音声を再生しています...
+  failedToGenerateSpeech: 音声生成に失敗しました
+  noTextSelected: テキストが選択されていません
+  openaiNotConfigured: OpenAIプロバイダーが設定されていないか有効になっていません
+  openaiApiKeyNotConfigured: OpenAI APIキーが設定されていません
+action:
+  copy: コピー
+  copied: コピー済み
+  regenerate: 再生成
+  viewContextDetails: コンテキスト
+  customizeCustomAction: $1 アクションをカスタマイズ
+  openCustomActions: Custom AI Actions を開く
+  contextDetailsTitleLabel: タイトル
+  contextDetailsParagraphsLabel: 段落内容
+  translation: 翻訳
+  speak: 読み上げ
+  playing: 再生中
+thinking:
+  label: 思考中
+  complete: 思考完了
+  expand: 思考を展開
+  collapse: 思考を折りたたむ
+shortcutKeySelector:
+  placeholder: ショートカットを入力してください
+subtitles:
+  actions:
+    downloadTranslated: 翻訳字幕をダウンロード
+    downloadTranslatedPreparing: 字幕を準備中。長い動画は時間がかかる場合があります
+    downloadTranslatedTranslating: 字幕を翻訳中
+    downloadTranslatedComplete: 翻訳字幕をダウンロードしました
+    downloadSource: 元字幕をダウンロード
+  state:
+    loading: OpenTranslate 字幕読み込み中
+    error: エラーが発生しました
+  errors:
+    http429: 429 YouTube字幕APIへのリクエストが多すぎます。しばらくしてから再試行してください
+    http404: 404 YouTubeの字幕が見つかりません
+    http403: 403 YouTube字幕へのアクセスが拒否されました
+    http500: 500 YouTubeサーバーエラー
+    httpUnknown: HTTP エラー $1
+    invalidResponse: YouTube字幕のレスポンス形式が無効です
+    networkError: 字幕取得時にネットワークエラーが発生しました
+    fetchSubTimeout: YouTube字幕の取得がタイムアウトしました
+    buttonNotFound: 字幕ボタンが見つかりません
+    noSubtitlesFound: この動画には字幕がありません
+    videoNotFound: 動画要素が見つかりません
+    controlsBarNotFound: コントロールバーが見つかりません
+    aiRateLimited: リクエストが多すぎます。後でもう一度お試しください
+    aiAuthFailed: API認証に失敗しました。APIキーを確認してください
+    aiServiceUnavailable: 翻訳サービスは一時的に利用できません
+    aiNoResponse: AIサービスが応答しませんでした。原文を表示します
+    translatedExportFailed: 翻訳字幕の生成に失敗しました
+    translatedExportIncomplete: すべての字幕行を翻訳できませんでした
+    translatedExportSameLanguage: 元の言語と翻訳先の言語が同じです
+hotkey:
+  control: Ctrl
+  alt: Option
+  shift: Shift
+  backtick: バッククォート
+  clickAndHold: クリックして長押し
+translationHub:
+  searchLanguages: 言語を検索...
+  noLanguagesFound: 言語が見つかりません
+  exchangeLanguages: 言語を入れ替える
+  title: マルチAPI テキスト翻訳
+  noServicesSelected: 翻訳サービスが選択されていません
+  noServicesDescription: 上から翻訳サービスを選択して、翻訳カードを表示してください。
+  inputPlaceholder: 翻訳するテキストを入力...
+  translate: 翻訳
+  copiedToClipboard: 翻訳をクリップボードにコピーしました！
+  copyTranslation: 翻訳をコピー
+  expandCard: カードを展開
+  collapseCard: カードを折りたたむ
+  expandAllCards: すべて展開
+  collapseAllCards: すべて折りたたむ
+  deleteCard: カードを削除
+  translationFailed: 翻訳に失敗しました
+  translationFailedFallback: 翻訳に失敗しました
+  retryTranslation: 翻訳を再試行
+languages:
+  eng: 英語
+  cmn: 簡体字中国語
+  cmnHant: 繁体字中国語
+  yue: 広東語
+  spa: スペイン語
+  rus: ロシア語
+  arb: アラビア語
+  ben: ベンガル語
+  hin: ヒンディー語
+  por: ポルトガル語
+  ind: インドネシア語
+  jpn: 日本語
+  fra: フランス語
+  deu: ドイツ語
+  jav: ジャワ語
+  kor: 韓国語
+  tel: テルグ語
+  vie: ベトナム語
+  mar: マラーティー語
+  ita: イタリア語
+  tam: タミル語
+  tur: トルコ語
+  urd: ウルドゥー語
+  guj: グジャラート語
+  pol: ポーランド語
+  ukr: ウクライナ語
+  kan: カンナダ語
+  mai: マイティリー語
+  mal: マラヤーラム語
+  pes: ペルシャ語
+  mya: ビルマ語
+  swh: スワヒリ語
+  sun: スンダ語
+  ron: ルーマニア語
+  pan: パンジャブ語
+  bho: ボージュプリー語
+  amh: アムハラ語
+  hau: ハウサ語
+  fuv: フラ語
+  bos: ボスニア語
+  hrv: クロアチア語
+  nld: オランダ語
+  srp: セルビア語
+  tha: タイ語
+  ckb: 中央クルド語
+  yor: ヨルバ語
+  uzn: ウズベク語
+  zlm: マレー語
+  ibo: イボ語
+  npi: ネパール語
+  ceb: セブアノ語
+  skr: サライキ語
+  tgl: タガログ語
+  hun: ハンガリー語
+  azj: アゼルバイジャン語
+  sin: シンハラ語
+  koi: コミ・ペルミャク語
+  ell: ギリシャ語
+  ces: チェコ語
+  mag: マガヒー語
+  run: ルンディ語
+  bel: ベラルーシ語
+  plt: マダガスカル語
+  qug: チンボラソ高地キチュア語
+  mad: マドゥラ語
+  nya: チェワ語
+  zyb: チワン語
+  pbu: パシュトー語
+  kin: ルワンダ語
+  zul: ズールー語
+  bul: ブルガリア語
+  swe: スウェーデン語
+  lin: リンガラ語
+  som: ソマリ語
+  hms: 黔東ミャオ語
+  hnj: フモン語
+  ilo: イロカノ語
+  kaz: カザフ語
+  heb: ヘブライ語
+  nob: ノルウェー語（ブークモール）
+  nno: ノルウェー語（ニーノシュク）
+  afr: アフリカーンス語
+  sqi: アルバニア語
+  asm: アッサム語
+  eus: バスク語
+  bre: ブルトン語
+  cat: カタルーニャ語
+  cos: コルシカ語
+  cym: ウェールズ語
+  dan: デンマーク語
+  div: ディベヒ語
+  epo: エスペラント
+  ekk: エストニア語
+  fao: フェロー語
+  fij: フィジー語
+  fin: フィンランド語
+  fry: 西フリジア語
+  gla: スコットランド・ゲール語
+  gle: アイルランド語
+  glg: ガリシア語
+  grn: グアラニー語
+  hat: ハイチ・クレオール語
+  haw: ハワイ語
+  hye: アルメニア語
+  ido: イド語
+  ina: インターリングア
+  isl: アイスランド語
+  kat: ジョージア語
+  khm: クメール語
+  kir: キルギス語
+  lao: ラオ語
+  lat: ラテン語
+  lvs: ラトビア語
+  lit: リトアニア語
+  ltz: ルクセンブルク語
+  mkd: マケドニア語
+  mlt: マルタ語
+  mon: モンゴル語
+  mri: マオリ語
+  nso: 北ソト語
+  oci: オック語
+  ori: オリヤー語
+  orm: オロモ語
+  prs: ダリー語
+  san: サンスクリット語
+  slk: スロバキア語
+  slv: スロベニア語
+  smo: サモア語
+  sna: ショナ語
+  snd: シンド語
+  sot: 南ソト語
+  tah: タヒチ語
+  tat: タタール語
+  tgk: タジク語
+  tir: ティグリニャ語
+  ton: トンガ語
+  tsn: ツワナ語
+  tuk: トルクメン語
+  uig: ウイグル語
+  vol: ヴォラピュク
+  wol: ウォロフ語
+  xho: コサ語
+  ydd: イディッシュ語
+  aka: アカン語
+  bam: バンバラ語
+  bis: ビスラマ語
+  bod: チベット語
+  che: チェチェン語
+  chv: チュヴァシ語
+  dzo: ゾンカ語
+  ewe: エウェ語
+  kab: カビル語
+  lug: ガンダ語
+  oss: オセット語
+  ssw: スワジ語
+  ven: ベンダ語
+  war: ワライ語
+  nde: 北ンデベレ語
+  nbl: 南ンデベレ語
+  pam: パンパンガ語
+  hil: ヒリガイノン語
+  bcl: 中央ビコール語
+  min: ミナンカバウ語
+  ace: アチェ語
+  bug: ブギス語
+  ban: バリ語
+  bjn: バンジャル語
+  mak: マカッサル語
+  sas: ササク語
+  tet: テトゥン語
+  cha: チャモロ語
+  niu: ニウエ語
+  tvl: ツバル語
+  gil: キリバス語
+  mah: マーシャル語
+  pau: パラオ語
+  wls: ウォリス語
+  rar: ラロトンガ語
+  hif: フィジー・ヒンディー語

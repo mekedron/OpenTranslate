@@ -1,0 +1,10 @@
+{
+  "extends": "./.wxt/tsconfig.json",
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": "./.wxt/tsconfig.typecheck.tsbuildinfo",
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true
+  },
+  "exclude": ["repos"]
+}
