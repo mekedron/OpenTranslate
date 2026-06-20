@@ -1,6 +1,8 @@
 import { attachRequestErrorMeta } from "@/utils/request/retry-policy"
 
 const GOOGLE_TRANSLATE_HTML_URL = "https://translate-pa.googleapis.com/v1/translateHtml"
+// if you lookup for this key on the github you'll see more than 300+ search results
+// so i think it's safe to use xD
 const GOOGLE_TRANSLATE_HTML_API_KEY = "AIzaSyATBXajvzQLTDHEQbcpq0Ihe0vWDHmO520"
 const GOOGLE_TRANSLATE_HTML_CLIENT = "wt_lib"
 
