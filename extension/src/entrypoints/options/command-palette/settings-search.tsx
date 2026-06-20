@@ -11,6 +11,8 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/base-ui/command"
+import { isTouchDevice } from "@/utils/browser-env"
+import { DESKTOP_ONLY_PATHS } from "../app-sidebar/nav-items"
 import { commandPaletteOpenAtom } from "./atoms"
 import { SEARCH_ITEMS } from "./search-items"
 import {
@@ -43,8 +45,13 @@ export function SettingsSearch() {
   }, [setOpen])
 
   const groupedItems = useMemo(() => {
+    // Hide macOS-only overlay tools (context menu, selection toolbar) on touch devices.
+    const hideDesktopOnly = isTouchDevice()
     const groups = new Map<(typeof SEARCH_ITEMS)[number]["pageKey"], typeof SEARCH_ITEMS>()
     for (const item of SEARCH_ITEMS) {
+      if (hideDesktopOnly && DESKTOP_ONLY_PATHS.includes(item.route)) {
+        continue
+      }
       const existing = groups.get(item.pageKey)
       if (existing) {
         existing.push(item)

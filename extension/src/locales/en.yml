@@ -71,6 +71,13 @@ errorRecovery:
     confirm: Reset
     cancel: Cancel
 options:
+  about:
+    title: About
+    description: Open-source translation for Safari
+    tagline: OpenTranslate translates whole web pages and selected text in Safari using the provider you choose — Google, Microsoft, DeepL, OpenAI, and more. It runs entirely on your device, with no account, no cloud sync, and no tracking.
+    openSource: Free and open source, released under the GPL-3.0 license.
+    viewOnGithub: View on GitHub
+    github: GitHub
   commandPalette:
     placeholder: Search settings...
     noResults: No settings found

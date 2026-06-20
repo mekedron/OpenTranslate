@@ -17,12 +17,15 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/base-ui/sidebar"
+import { isTouchDevice } from "@/utils/browser-env"
 
 const OVERLAY_TOOLS_PATHS = ["/floating-button", "/selection-toolbar", "/context-menu"] as const
 
 export function SettingsNav() {
   const { pathname } = useLocation()
   const isOverlayToolsActive = OVERLAY_TOOLS_PATHS.includes(pathname)
+  // The context menu and in-page selection toolbar only work on macOS Safari.
+  const showDesktopOverlayTools = !isTouchDevice()
 
   return (
     <SidebarGroup>
@@ -81,16 +84,20 @@ export function SettingsNav() {
                       <span>{i18n.t("options.overlayTools.floatingButton.title")}</span>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>
-                  <SidebarMenuSubItem>
-                    <SidebarMenuSubButton render={<Link to="/selection-toolbar" />} isActive={pathname === "/selection-toolbar"}>
-                      <span>{i18n.t("options.overlayTools.selectionToolbar.title")}</span>
-                    </SidebarMenuSubButton>
-                  </SidebarMenuSubItem>
-                  <SidebarMenuSubItem>
-                    <SidebarMenuSubButton render={<Link to="/context-menu" />} isActive={pathname === "/context-menu"}>
-                      <span>{i18n.t("options.overlayTools.contextMenu.title")}</span>
-                    </SidebarMenuSubButton>
-                  </SidebarMenuSubItem>
+                  {showDesktopOverlayTools && (
+                    <>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton render={<Link to="/selection-toolbar" />} isActive={pathname === "/selection-toolbar"}>
+                          <span>{i18n.t("options.overlayTools.selectionToolbar.title")}</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuSubButton render={<Link to="/context-menu" />} isActive={pathname === "/context-menu"}>
+                          <span>{i18n.t("options.overlayTools.contextMenu.title")}</span>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    </>
+                  )}
                 </SidebarMenuSub>
               </CollapsibleContent>
             </SidebarMenuItem>

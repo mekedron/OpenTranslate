@@ -71,6 +71,13 @@ errorRecovery:
     confirm: 초기화
     cancel: 취소
 options:
+  about:
+    title: 정보
+    description: Safari를 위한 오픈 소스 번역
+    tagline: OpenTranslate는 선택한 번역 제공업체(Google, Microsoft, DeepL, OpenAI 등)를 사용해 Safari에서 전체 웹 페이지와 선택한 텍스트를 번역합니다. 모든 작업은 기기에서 처리되며 계정, 클라우드 동기화, 추적이 없습니다.
+    openSource: GPL-3.0 라이선스로 배포되는 무료 오픈 소스 소프트웨어입니다.
+    viewOnGithub: GitHub에서 보기
+    github: GitHub
   commandPalette:
     placeholder: 설정 검색...
     noResults: 설정을 찾을 수 없습니다

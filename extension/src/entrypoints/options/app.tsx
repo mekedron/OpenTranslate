@@ -14,6 +14,7 @@ const SelectionToolbarPage = lazy(() => import("./pages/selection-toolbar").then
 const ContextMenuPage = lazy(() => import("./pages/context-menu").then(module => ({ default: module.ContextMenuPage })))
 const InputTranslationPage = lazy(() => import("./pages/input-translation").then(module => ({ default: module.InputTranslationPage })))
 const StatisticsPage = lazy(() => import("./pages/statistics").then(module => ({ default: module.StatisticsPage })))
+const AboutPage = lazy(() => import("./pages/about").then(module => ({ default: module.AboutPage })))
 const ConfigPage = lazy(() => import("./pages/config").then(module => ({ default: module.ConfigPage })))
 
 const ROUTE_COMPONENTS: Record<RoutePath, ComponentType> = {
@@ -26,6 +27,7 @@ const ROUTE_COMPONENTS: Record<RoutePath, ComponentType> = {
   "/context-menu": ContextMenuPage,
   "/input-translation": InputTranslationPage,
   "/statistics": StatisticsPage,
+  "/about": AboutPage,
   "/config": ConfigPage,
 }
 

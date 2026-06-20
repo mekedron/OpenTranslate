@@ -71,6 +71,13 @@ errorRecovery:
     confirm: リセット
     cancel: キャンセル
 options:
+  about:
+    title: 概要
+    description: Safari 向けのオープンソース翻訳
+    tagline: OpenTranslate は、選択した翻訳プロバイダー（Google、Microsoft、DeepL、OpenAI など）を使って、Safari で Web ページ全体や選択したテキストを翻訳します。すべての処理はお使いのデバイス上で行われ、アカウント不要、クラウド同期なし、トラッキングもありません。
+    openSource: GPL-3.0 ライセンスで公開されている、無料のオープンソースソフトウェアです。
+    viewOnGithub: GitHub で見る
+    github: GitHub
   commandPalette:
     placeholder: 設定を検索...
     noResults: 設定が見つかりません

@@ -71,6 +71,13 @@ errorRecovery:
     confirm: Restablecer
     cancel: Cancelar
 options:
+  about:
+    title: Acerca de
+    description: Traducción de código abierto para Safari
+    tagline: OpenTranslate traduce páginas web completas y el texto seleccionado en Safari con el proveedor que elijas — Google, Microsoft, DeepL, OpenAI y más. Funciona por completo en tu dispositivo, sin cuenta, sin sincronización en la nube y sin seguimiento.
+    openSource: Software libre y de código abierto, publicado bajo la licencia GPL-3.0.
+    viewOnGithub: Ver en GitHub
+    github: GitHub
   commandPalette:
     placeholder: Buscar configuración...
     noResults: No se encontró configuración

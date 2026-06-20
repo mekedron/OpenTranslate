@@ -71,6 +71,13 @@ errorRecovery:
     confirm: 重置
     cancel: 取消
 options:
+  about:
+    title: 关于
+    description: 面向 Safari 的开源翻译
+    tagline: OpenTranslate 使用你选择的服务商（Google、Microsoft、DeepL、OpenAI 等）在 Safari 中翻译整个网页和选中的文本。一切都在你的设备上运行，无需账户，不进行云同步，也不做任何追踪。
+    openSource: 免费开源软件，基于 GPL-3.0 许可证发布。
+    viewOnGithub: 在 GitHub 上查看
+    github: GitHub
   commandPalette:
     placeholder: 搜索设置...
     noResults: 未找到设置

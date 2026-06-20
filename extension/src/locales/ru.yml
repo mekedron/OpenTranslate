@@ -71,6 +71,13 @@ errorRecovery:
     confirm: Сбросить
     cancel: Отмена
 options:
+  about:
+    title: О программе
+    description: Перевод с открытым исходным кодом для Safari
+    tagline: OpenTranslate переводит целые веб-страницы и выделенный текст в Safari с помощью выбранного вами сервиса — Google, Microsoft, DeepL, OpenAI и других. Всё работает прямо на вашем устройстве — без аккаунта, без облачной синхронизации и без отслеживания.
+    openSource: Бесплатное программное обеспечение с открытым исходным кодом под лицензией GPL-3.0.
+    viewOnGithub: Открыть на GitHub
+    github: GitHub
   commandPalette:
     placeholder: Поиск настроек...
     noResults: Настройки не найдены

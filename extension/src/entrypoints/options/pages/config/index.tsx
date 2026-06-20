@@ -1,6 +1,5 @@
 import { i18n } from "#imports"
 import { PageLayout } from "../../components/page-layout"
-import { AboutCard } from "./about-card"
 import { BetaExperienceConfig } from "./beta-experience"
 import { ConfigBackup } from "./config-backup"
 import { ManualConfigSync } from "./manual-config-sync"
@@ -12,7 +11,6 @@ export function ConfigPage() {
       <BetaExperienceConfig />
       <ManualConfigSync />
       <ConfigBackup />
-      <AboutCard />
       <ResetConfig />
     </PageLayout>
   )

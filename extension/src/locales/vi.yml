@@ -71,6 +71,13 @@ errorRecovery:
     confirm: Đặt lại
     cancel: Hủy
 options:
+  about:
+    title: Giới thiệu
+    description: Dịch thuật mã nguồn mở cho Safari
+    tagline: OpenTranslate dịch toàn bộ trang web và văn bản được chọn trong Safari bằng nhà cung cấp bạn chọn — Google, Microsoft, DeepL, OpenAI và nhiều hơn nữa. Mọi thứ chạy hoàn toàn trên thiết bị của bạn, không cần tài khoản, không đồng bộ đám mây và không theo dõi.
+    openSource: Phần mềm miễn phí và mã nguồn mở, phát hành theo giấy phép GPL-3.0.
+    viewOnGithub: Xem trên GitHub
+    github: GitHub
   commandPalette:
     placeholder: Tìm kiếm cài đặt...
     noResults: Không tìm thấy cài đặt

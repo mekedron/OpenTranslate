@@ -27,22 +27,6 @@ import { prepareTranslationText } from "@/utils/host/translate/text-preparation"
 import { sendMessage } from "@/utils/message"
 import { cn } from "@/utils/styles/utils"
 
-/**
- * iOS-only popup card: shows the page's current text selection, its translation,
- * and the enabled custom actions (e.g. Dictionary).
- *
- * On iOS the in-page selection toolbar can't be used (Safari's native selection
- * callout always renders on top of web content), so selection translation surfaces
- * here in the popup instead. macOS keeps the in-page toolbar and never renders this.
- */
-function useIsIosSelectionSurface() {
-  const [isCoarsePointer, setIsCoarsePointer] = useState(false)
-  useEffect(() => {
-    setIsCoarsePointer(window.matchMedia?.("(pointer: coarse)")?.matches ?? false)
-  }, [])
-  return IS_SAFARI && isCoarsePointer
-}
-
 const TRANSLATE_ACTION_ID = "__translate__"
 
 type ActiveActionId = typeof TRANSLATE_ACTION_ID | string
@@ -400,9 +384,16 @@ function SelectionTranslateCard() {
   )
 }
 
+/**
+ * Popup card showing the page's current text selection, its translation, and the
+ * enabled custom actions (e.g. Dictionary). Available on every Safari platform —
+ * iPhone, iPad, and macOS — so selected-text lookup works straight from the popup
+ * even where the in-page selection toolbar isn't usable (iOS/iPadOS, where Safari's
+ * native selection callout always covers it). Renders nothing when there is no
+ * active selection on the page.
+ */
 export function SelectionTranslate() {
-  const isIosSelectionSurface = useIsIosSelectionSurface()
-  if (!isIosSelectionSurface) {
+  if (!IS_SAFARI) {
     return null
   }
   return <SelectionTranslateCard />

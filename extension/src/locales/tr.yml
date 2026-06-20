@@ -71,6 +71,13 @@ errorRecovery:
     confirm: Sıfırla
     cancel: İptal
 options:
+  about:
+    title: Hakkında
+    description: Safari için açık kaynaklı çeviri
+    tagline: OpenTranslate, seçtiğiniz sağlayıcıyı (Google, Microsoft, DeepL, OpenAI ve daha fazlası) kullanarak Safari'de tüm web sayfalarını ve seçili metni çevirir. Tümüyle cihazınızda çalışır; hesap, bulut eşitlemesi ve takip yoktur.
+    openSource: GPL-3.0 lisansıyla yayımlanan ücretsiz ve açık kaynaklı bir yazılımdır.
+    viewOnGithub: GitHub'da görüntüle
+    github: GitHub
   commandPalette:
     placeholder: Ayarları ara...
     noResults: Ayar bulunamadı
