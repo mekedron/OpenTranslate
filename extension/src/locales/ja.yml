@@ -78,6 +78,7 @@ options:
     openSource: GPL-3.0 ライセンスで公開されている、無料のオープンソースソフトウェアです。
     viewOnGithub: GitHub で見る
     github: GitHub
+  dragToReorder: ドラッグして並べ替え
   commandPalette:
     placeholder: 設定を検索...
     noResults: 設定が見つかりません

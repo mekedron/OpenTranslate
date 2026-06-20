@@ -17,8 +17,15 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
+import { Icon } from "@iconify/react"
 import { useState } from "react"
+import { i18n } from "#imports"
 import { cn } from "@/utils/styles/utils"
+
+/** Static grip used in the drag overlay (the real, interactive handle lives on each item). */
+function DragHandleIcon() {
+  return <Icon icon="tabler:grip-vertical" className="size-4 shrink-0 text-muted-foreground" />
+}
 
 export function SortableList<T extends { id: string }>({
   list,
@@ -28,7 +35,12 @@ export function SortableList<T extends { id: string }>({
 }: {
   list: T[]
   setList: (items: T[]) => void
-  renderItem: (item: T) => React.ReactNode
+  /**
+   * Renders one item. `dragHandle` is the ONLY draggable affordance — place it
+   * (typically a left-side grip) inside the item so the rest of the card stays
+   * scrollable/tappable on touch devices.
+   */
+  renderItem: (item: T, dragHandle: React.ReactNode) => React.ReactNode
   className?: string
 }) {
   const [activeId, setActiveId] = useState<string | null>(null)
@@ -90,26 +102,33 @@ export function SortableList<T extends { id: string }>({
       >
         <div className={className} style={{ overflowAnchor: "none" }}>
           {list.map(item => (
-            <SortableItemWrapper key={item.id} id={item.id}>
-              {renderItem(item)}
-            </SortableItemWrapper>
+            <SortableItemWrapper key={item.id} id={item.id} item={item} renderItem={renderItem} />
           ))}
         </div>
       </SortableContext>
       <DragOverlay>
         <div className="cursor-grabbing rounded-xl shadow-xl">
-          {activeItem ? renderItem(activeItem) : null}
+          {activeItem ? renderItem(activeItem, <DragHandleIcon />) : null}
         </div>
       </DragOverlay>
     </DndContext>
   )
 }
 
-function SortableItemWrapper({ id, children }: { id: string, children: React.ReactNode }) {
+function SortableItemWrapper<T extends { id: string }>({
+  id,
+  item,
+  renderItem,
+}: {
+  id: string
+  item: T
+  renderItem: (item: T, dragHandle: React.ReactNode) => React.ReactNode
+}) {
   const {
     attributes,
     listeners,
     setNodeRef,
+    setActivatorNodeRef,
     transform,
     transition,
     isDragging,
@@ -121,19 +140,33 @@ function SortableItemWrapper({ id, children }: { id: string, children: React.Rea
     overflowAnchor: "none" as const,
   }
 
+  // The drag listeners live ONLY on this handle (not the whole card). `touch-none`
+  // lets a touch on the grip start a drag, while a swipe anywhere else on the card
+  // scrolls the list normally — this is what stops accidental drags on iOS.
+  const dragHandle = (
+    <button
+      type="button"
+      ref={setActivatorNodeRef}
+      aria-label={i18n.t("options.dragToReorder")}
+      className="flex shrink-0 cursor-grab touch-none select-none items-center self-stretch text-muted-foreground transition-colors hover:text-foreground active:cursor-grabbing"
+      {...attributes}
+      {...listeners}
+    >
+      <Icon icon="tabler:grip-vertical" className="size-4" />
+    </button>
+  )
+
   return (
     <div
       ref={setNodeRef}
       data-sortable-id={id}
       style={style}
       className={cn(
-        "cursor-grab active:cursor-grabbing rounded-xl transition-all duration-200",
+        "rounded-xl transition-all duration-200",
         isDragging && "opacity-50",
       )}
-      {...attributes}
-      {...listeners}
     >
-      {children}
+      {renderItem(item, dragHandle)}
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react"
 import type { SelectionToolbarCustomAction } from "@/types/config/selection-toolbar"
 import type { CustomActionTemplate } from "@/utils/constants/custom-action-templates"
 import { Icon } from "@iconify/react"
@@ -101,8 +102,8 @@ export function CustomActionCardList() {
             list={customActions}
             setList={handleReorder}
             className="flex flex-col gap-3 pt-2"
-            renderItem={action => (
-              <CustomActionCard action={action} />
+            renderItem={(action, dragHandle) => (
+              <CustomActionCard action={action} dragHandle={dragHandle} />
             )}
           />
         </EntityListRail>
@@ -111,7 +112,7 @@ export function CustomActionCardList() {
   )
 }
 
-function CustomActionCard({ action }: { action: SelectionToolbarCustomAction }) {
+function CustomActionCard({ action, dragHandle }: { action: SelectionToolbarCustomAction, dragHandle: ReactNode }) {
   const [selectionToolbarConfig, setSelectionToolbarConfig] = useAtom(configFieldsAtomMap.selectionToolbar)
   const [selectedCustomActionId, setSelectedCustomActionId] = useAtom(selectedCustomActionIdAtom)
   const customActions = selectionToolbarConfig.customActions ?? []
@@ -127,6 +128,7 @@ function CustomActionCard({ action }: { action: SelectionToolbarCustomAction }) 
     >
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2 min-w-0">
+          {dragHandle}
           <div className="size-4">
             <Icon icon={action.icon} className="size-4 text-zinc-600 dark:text-zinc-300 shrink-0" />
           </div>

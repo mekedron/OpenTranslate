@@ -1,3 +1,4 @@
+import type { ReactNode } from "react"
 import type { APIProviderConfig } from "@/types/config/provider"
 import { Icon } from "@iconify/react"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
@@ -107,8 +108,8 @@ function ProviderCardList() {
           list={apiProvidersConfig}
           setList={handleReorder}
           className="flex flex-col gap-4 pt-2"
-          renderItem={providerConfig => (
-            <ProviderCard providerConfig={providerConfig} />
+          renderItem={(providerConfig, dragHandle) => (
+            <ProviderCard providerConfig={providerConfig} dragHandle={dragHandle} />
           )}
         />
       </EntityListRail>
@@ -116,7 +117,7 @@ function ProviderCardList() {
   )
 }
 
-function ProviderCard({ providerConfig }: { providerConfig: APIProviderConfig }) {
+function ProviderCard({ providerConfig, dragHandle }: { providerConfig: APIProviderConfig, dragHandle: ReactNode }) {
   const { id, name, provider, enabled } = providerConfig
   const { theme } = useTheme()
   const [selectedProviderId, setSelectedProviderId] = useAtom(selectedProviderIdAtom)
@@ -175,7 +176,10 @@ function ProviderCard({ providerConfig }: { providerConfig: APIProviderConfig })
         </div>
       )}
       <div className="flex items-center justify-between gap-2">
-        <ProviderIcon logo={API_PROVIDER_ITEMS[provider].logo(theme)} name={name} size="base" textClassName="text-sm" />
+        <div className="flex min-w-0 items-center gap-2">
+          {dragHandle}
+          <ProviderIcon logo={API_PROVIDER_ITEMS[provider].logo(theme)} name={name} size="base" textClassName="text-sm" />
+        </div>
         <Switch
           checked={enabled}
           onCheckedChange={handleProviderEnabledChange}

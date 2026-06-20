@@ -78,6 +78,7 @@ options:
     openSource: Бесплатное программное обеспечение с открытым исходным кодом под лицензией GPL-3.0.
     viewOnGithub: Открыть на GitHub
     github: GitHub
+  dragToReorder: Перетащите, чтобы изменить порядок
   commandPalette:
     placeholder: Поиск настроек...
     noResults: Настройки не найдены

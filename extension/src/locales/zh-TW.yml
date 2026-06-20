@@ -78,6 +78,7 @@ options:
     openSource: 免費開源軟體，依 GPL-3.0 授權條款發布。
     viewOnGithub: 在 GitHub 上檢視
     github: GitHub
+  dragToReorder: 拖曳以重新排序
   commandPalette:
     placeholder: 搜尋設定…
     noResults: 找不到設定

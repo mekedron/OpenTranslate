@@ -78,6 +78,7 @@ options:
     openSource: GPL-3.0 lisansıyla yayımlanan ücretsiz ve açık kaynaklı bir yazılımdır.
     viewOnGithub: GitHub'da görüntüle
     github: GitHub
+  dragToReorder: Yeniden sıralamak için sürükleyin
   commandPalette:
     placeholder: Ayarları ara...
     noResults: Ayar bulunamadı

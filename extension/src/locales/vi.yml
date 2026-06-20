@@ -78,6 +78,7 @@ options:
     openSource: Phần mềm miễn phí và mã nguồn mở, phát hành theo giấy phép GPL-3.0.
     viewOnGithub: Xem trên GitHub
     github: GitHub
+  dragToReorder: Kéo để sắp xếp lại
   commandPalette:
     placeholder: Tìm kiếm cài đặt...
     noResults: Không tìm thấy cài đặt

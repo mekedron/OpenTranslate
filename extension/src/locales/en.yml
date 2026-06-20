@@ -78,6 +78,7 @@ options:
     openSource: Free and open source, released under the GPL-3.0 license.
     viewOnGithub: View on GitHub
     github: GitHub
+  dragToReorder: Drag to reorder
   commandPalette:
     placeholder: Search settings...
     noResults: No settings found

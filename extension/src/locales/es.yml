@@ -78,6 +78,7 @@ options:
     openSource: Software libre y de código abierto, publicado bajo la licencia GPL-3.0.
     viewOnGithub: Ver en GitHub
     github: GitHub
+  dragToReorder: Arrastrar para reordenar
   commandPalette:
     placeholder: Buscar configuración...
     noResults: No se encontró configuración

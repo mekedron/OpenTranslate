@@ -289,9 +289,9 @@ export const OutputSchemaField = withForm({
                   void form.handleSubmit()
                 }}
                 className="flex flex-col gap-2"
-                renderItem={outputField => (
+                renderItem={(outputField, dragHandle) => (
                   <div className="flex items-center gap-2 rounded-lg border bg-card p-2">
-                    <Icon icon="tabler:grip-vertical" className="size-4 text-muted-foreground shrink-0" />
+                    {dragHandle}
                     <span className="text-sm font-medium shrink-0">{outputField.name}</span>
                     <Badge variant="secondary" className="shrink-0">{i18n.t(`dataTypes.${outputField.type}`)}</Badge>
                     <span className="text-sm text-muted-foreground truncate min-w-0 flex-1">

@@ -78,6 +78,7 @@ options:
     openSource: 免费开源软件，基于 GPL-3.0 许可证发布。
     viewOnGithub: 在 GitHub 上查看
     github: GitHub
+  dragToReorder: 拖动以重新排序
   commandPalette:
     placeholder: 搜索设置...
     noResults: 未找到设置
