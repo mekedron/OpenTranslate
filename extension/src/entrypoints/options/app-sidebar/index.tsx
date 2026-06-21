@@ -1,7 +1,7 @@
 import { IconSearch } from "@tabler/icons-react"
 import { useSetAtom } from "jotai"
 import { useEffect } from "react"
-import { useLocation } from "react-router"
+import { Link, useLocation } from "react-router"
 import { i18n } from "#imports"
 import openTranslateLogo from "@/assets/icons/opentranslate.png"
 import {
@@ -16,7 +16,6 @@ import {
   SidebarHeader,
   useSidebar,
 } from "@/components/ui/base-ui/sidebar"
-import { GITHUB_REPO_URL } from "@/utils/constants/app"
 import { getCommandPaletteShortcutHint } from "@/utils/os"
 import { commandPaletteOpenAtom } from "../command-palette/atoms"
 import { ProductNav } from "./product-nav"
@@ -39,10 +38,10 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="group-data-[state=expanded]:px-5 group-data-[state=expanded]:pt-4 transition-all">
-        <a href={GITHUB_REPO_URL} className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src={openTranslateLogo} alt="Logo" className="h-8 w-8 shrink-0" />
           <span className="text-md font-bold overflow-hidden truncate">{i18n.t("name")}</span>
-        </a>
+        </Link>
         <InputGroup
           onClick={() => setCommandPaletteOpen(true)}
           className="bg-background"
