@@ -46,10 +46,12 @@ function HydrateAtoms({
 
 async function initApp() {
   const root = document.getElementById("root")!
-  // Full-width on touch/iOS (the popup is presented as a full-width sheet); a fixed
-  // width on desktop (macOS Safari/Chrome size the popover to the content).
+  // iPhone presents the popup as a full-width sheet, so fill it (w-full). iPad presents
+  // it as a floating popover sized to its content — there w-full has no definite width to
+  // fill and collapses too narrow, so a min-width floor makes the popover open wide enough
+  // for both language selectors. Desktop (macOS Safari/Chrome) sizes the popover to a fixed width.
   const isCoarsePointer = window.matchMedia?.("(pointer: coarse)")?.matches ?? false
-  root.className = `text-base antialiased bg-background ${isCoarsePointer ? "w-full" : "w-[320px]"}`
+  root.className = `text-base antialiased bg-background ${isCoarsePointer ? "w-full min-w-[360px]" : "w-[320px]"}`
 
   const [configValue, themeMode, activeTab] = await Promise.all([
     getLocalConfig(),
