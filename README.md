@@ -1,7 +1,9 @@
 # OpenTranslate
 
-A Safari Web Extension for **full-page translation** on **macOS and iOS**. It exists because
-Safari's built-in translation is limited and does not cover many languages (e.g. Finnish) well.
+A Safari Web Extension for **full-page translation** on **macOS, iPhone, and iPad**. It exists
+because Safari's built-in translation is limited and does not cover many languages (e.g. Finnish) well.
+
+**[Website](https://mekedron.github.io/OpenTranslate/)** · **[Releases](https://github.com/mekedron/OpenTranslate/releases)**
 
 OpenTranslate ships a rich translation engine — **~32 providers** (Google & Microsoft free,
 DeepL/DeepLX, and 28 LLM providers via the Vercel AI SDK: OpenAI, Anthropic, Gemini, DeepSeek,
@@ -16,6 +18,7 @@ Settings are stored **locally on each device** — no account, no cloud sync, no
 |---------------|----------|
 | `extension/`  | The WXT web-extension source. Source of truth. |
 | `apple/`      | The generated Xcode project (macOS + iOS app & extension targets), hand-edited for signing. Committed. |
+| `site/`       | The [landing page](https://mekedron.github.io/OpenTranslate/) source, deployed to GitHub Pages via Actions. |
 | `scripts/`    | Build / convert / run helpers. |
 | `docs/SAFARI.md` | Build, sign, and test runbook + provenance. |
 
@@ -34,6 +37,16 @@ cd extension && pnpm install && pnpm build:safari      # → extension/.output/s
 
 See [`docs/SAFARI.md`](docs/SAFARI.md) for the full runbook, including enabling unsigned
 extensions on macOS and granting per-site access.
+
+## Download
+
+There's no App Store listing yet — for now, grab the latest build from
+[GitHub Releases](https://github.com/mekedron/OpenTranslate/releases).
+
+## Support
+
+OpenTranslate is built and maintained by one solo developer, for free. If it's useful to you,
+consider [buying me a coffee](https://buymeacoffee.com/mekedron) ☕ — it keeps the commits coming.
 
 ## License
 
