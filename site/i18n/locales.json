@@ -21,6 +21,8 @@
     { "code": "no", "name": "Norsk",      "flag": "🇳🇴", "og_locale": "nb_NO" },
     { "code": "fi", "name": "Suomi",      "flag": "🇫🇮", "og_locale": "fi_FI" },
     { "code": "is", "name": "Íslenska",   "flag": "🇮🇸", "og_locale": "is_IS" },
-    { "code": "ru", "name": "Русский",    "flag": "🇷🇺", "og_locale": "ru_RU" }
+    { "code": "ru", "name": "Русский",    "flag": "🇷🇺", "og_locale": "ru_RU" },
+    { "code": "ja", "name": "日本語",       "flag": "🇯🇵", "og_locale": "ja_JP" },
+    { "code": "zh", "name": "简体中文",     "flag": "🇨🇳", "og_locale": "zh_CN" }
   ]
 }

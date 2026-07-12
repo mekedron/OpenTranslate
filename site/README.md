@@ -13,7 +13,7 @@ locale:
 | Path | Language |
 | --- | --- |
 | `/` | English (canonical) |
-| `/en/` `/de/` `/fr/` `/es/` `/it/` `/pt/` `/nl/` `/pl/` `/uk/` `/cs/` `/hu/` `/ro/` `/el/` `/tr/` `/sv/` `/da/` `/no/` `/fi/` `/is/` `/ru/` | one page per locale (order set in `locales.json`) |
+| `/en/` `/de/` `/fr/` `/es/` `/it/` `/pt/` `/nl/` `/pl/` `/uk/` `/cs/` `/hu/` `/ro/` `/el/` `/tr/` `/sv/` `/da/` `/no/` `/fi/` `/is/` `/ru/` `/ja/` `/zh/` | one page per locale (order set in `locales.json`) |
 
 Everything lives in [`i18n/`](i18n/):
 
