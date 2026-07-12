@@ -1,0 +1,26 @@
+{
+  "_comment": "Registry of every locale the landing page is built for. `code` is the URL path segment (/xx/) and the hreflang value; the English `en` locale is served from the site root (/). `name` is the endonym shown in the language switcher and the cross-language banner; `flag` is the emoji shown beside it. `og_locale` feeds <meta property=og:locale>. Order here drives the switcher + sitemap order. To add a language: append an entry and drop a matching strings/<code>.json next to en.json — nothing else to wire up.",
+  "default": "en",
+  "locales": [
+    { "code": "en", "name": "English",    "flag": "🇬🇧", "og_locale": "en_US" },
+    { "code": "de", "name": "Deutsch",    "flag": "🇩🇪", "og_locale": "de_DE" },
+    { "code": "fr", "name": "Français",   "flag": "🇫🇷", "og_locale": "fr_FR" },
+    { "code": "es", "name": "Español",    "flag": "🇪🇸", "og_locale": "es_ES" },
+    { "code": "it", "name": "Italiano",   "flag": "🇮🇹", "og_locale": "it_IT" },
+    { "code": "pt", "name": "Português",  "flag": "🇵🇹", "og_locale": "pt_PT" },
+    { "code": "nl", "name": "Nederlands", "flag": "🇳🇱", "og_locale": "nl_NL" },
+    { "code": "pl", "name": "Polski",     "flag": "🇵🇱", "og_locale": "pl_PL" },
+    { "code": "uk", "name": "Українська", "flag": "🇺🇦", "og_locale": "uk_UA" },
+    { "code": "cs", "name": "Čeština",    "flag": "🇨🇿", "og_locale": "cs_CZ" },
+    { "code": "hu", "name": "Magyar",     "flag": "🇭🇺", "og_locale": "hu_HU" },
+    { "code": "ro", "name": "Română",     "flag": "🇷🇴", "og_locale": "ro_RO" },
+    { "code": "el", "name": "Ελληνικά",   "flag": "🇬🇷", "og_locale": "el_GR" },
+    { "code": "tr", "name": "Türkçe",     "flag": "🇹🇷", "og_locale": "tr_TR" },
+    { "code": "sv", "name": "Svenska",    "flag": "🇸🇪", "og_locale": "sv_SE" },
+    { "code": "da", "name": "Dansk",      "flag": "🇩🇰", "og_locale": "da_DK" },
+    { "code": "no", "name": "Norsk",      "flag": "🇳🇴", "og_locale": "nb_NO" },
+    { "code": "fi", "name": "Suomi",      "flag": "🇫🇮", "og_locale": "fi_FI" },
+    { "code": "is", "name": "Íslenska",   "flag": "🇮🇸", "og_locale": "is_IS" },
+    { "code": "ru", "name": "Русский",    "flag": "🇷🇺", "og_locale": "ru_RU" }
+  ]
+}

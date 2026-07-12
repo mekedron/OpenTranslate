@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - "scripts/build_site.py"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -25,10 +26,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Render the localized pages
+        run: python3 scripts/build_site.py --out _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
 
   deploy:
     needs: build
